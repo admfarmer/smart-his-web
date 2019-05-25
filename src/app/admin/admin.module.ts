@@ -10,13 +10,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { UserComponent } from './settings/user/user.component';
+import { OvsitdxComponent } from './ovsitdx/ovsitdx.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     UserComponent,
-    LayoutComponent
+    LayoutComponent,
+    OvsitdxComponent
 
   ],
   imports: [

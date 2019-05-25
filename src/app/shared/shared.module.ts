@@ -8,6 +8,7 @@ import { ToggleFullscreenDirective } from './toggle-fullscreen.directive';
 import { ModalAddUserComponent } from './modal-add-user/modal-add-user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { OvsitdxService } from 'src/app/shared/ovsitdx.service';
 
 @NgModule({
   imports: [
@@ -31,7 +32,7 @@ import { FormsModule } from '@angular/forms';
   providers: [
     AuthGuardService,
     LoginService,
-
+    OvsitdxService
   ]
 })
 export class SharedModule { }

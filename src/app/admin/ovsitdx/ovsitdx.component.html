@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">รายงานไข้เลือดออก 2019</h4>
+    <p class="card-description">
+      จำนวนผู้รับบริการสั่งข้อมูล EOC Notify จากระบบ Smard His Online
+    </p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>HN</th>
+          <th>ชื่อ - สกุล</th>
+          <th>วันที่ Dx</th>
+          <th>เวลา Dx</th>
+          <th>diagname</th>
+          <th>เพศ</th>
+          <th>ที่อยู่</th>
+          <th>##</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let item of items">
+          <td><h4>{{item.hn}}</h4></td>
+          <td><h4>{{item.fullname}}</h4></td>
+          <td><h4>{{item.vstdttm}}</h4></td>
+          <td><h4>{{item.drxtime}}</h4></td>
+          <td><h4>{{item.diagname}}</h4></td>
+          <td><h4>{{item.sex}}</h4></td>
+          <td><h4>{{item.address}}</h4></td>
+          <td>
+              <div class="btn-group">
+              <button class="btn btn-sm btn-gradient-primary" (click)="openEdit(item)"><i class="mdi mdi-arrow-right"></i> บันทึก</button>
+              </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
