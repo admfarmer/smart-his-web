@@ -26,7 +26,7 @@ export class OvsitdxComponent implements OnInit {
   setupRefresh() {
     setTimeout(() => {
       location.reload();
-    }, 500000);
+    }, 50000);
   }
 
   async getList() {
