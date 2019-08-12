@@ -28,6 +28,9 @@ export class OvsitdxComponent implements OnInit {
       location.reload();
     }, 50000);
   }
+  openEdit(item: any) {
+
+  }
 
   async getList() {
     try {

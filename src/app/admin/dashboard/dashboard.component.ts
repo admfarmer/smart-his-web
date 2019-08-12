@@ -20,19 +20,22 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     // this.getInfo();
   }
-  async getInfo() {
-    try {
-      const rs: any = await this.smardcardService.getInfo();
-      if (rs.statusCode === 200) {
-        this.items = rs;
-        console.log(this.items);
-      } else {
-        this.alertService.error('เกิดข้อผิดพลาด');
-      }
-    } catch (error) {
-      console.log(error);
-      this.alertService.error();
-    }
+  openEdit(item: any) {
+
   }
+  // async getInfo() {
+  //   try {
+  //     const rs: any = await this.smardcardService.getInfo();
+  //     if (rs.statusCode === 200) {
+  //       this.items = rs;
+  //       console.log(this.items);
+  //     } else {
+  //       this.alertService.error('เกิดข้อผิดพลาด');
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //     this.alertService.error();
+  //   }
+  // }
 
 }

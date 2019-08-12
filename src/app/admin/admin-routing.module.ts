@@ -4,12 +4,19 @@ import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './settings/user/user.component';
 import { AuthGuardService } from '../shared/auth-guard.service';
-import { OvsitdxComponent } from './ovsitdx/ovsitdx.component'
+import { OvsitdxComponent } from './ovsitdx/ovsitdx.component';
+import { KpidataComponent } from './kpidata/kpidata.component';
+import { KpiComponent } from './settings/kpi/kpi.component';
+import { KpiyearsComponent } from './settings/kpiyears/kpiyears.component';
+
 const routes: Routes = [
   {
     path: 'admin', component: LayoutComponent,
     canActivate: [AuthGuardService],
     children: [
+      { path: 'kpis', component: KpiComponent },
+      { path: 'kpiyears', component: KpiyearsComponent },
+      { path: 'kpidatas', component: KpidataComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'users', component: UserComponent },
       { path: 'ovstdx', component: OvsitdxComponent },
