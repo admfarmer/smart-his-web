@@ -14,6 +14,7 @@ export class ModalAddKpidataComponent implements OnInit {
   @Output('onSave') onSave: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild('content') public content: any;
+  fullname: string;
 
   modalReference: NgbModalRef;
   items: any = [];
@@ -28,12 +29,15 @@ export class ModalAddKpidataComponent implements OnInit {
   kpi_works: any;
   sdate: any;
   status: any;
+  user_works: any;
 
   constructor(
     private modalService: NgbModal,
     private alertService: AlertService,
     private kpiDatasService: KpiDatasService
-  ) { }
+  ) {
+    this.fullname = sessionStorage.getItem('fullname');
+  }
 
   ngOnInit(): void {
     this.getKpiInfo();
@@ -56,10 +60,12 @@ export class ModalAddKpidataComponent implements OnInit {
       this.kpi_works = info.kpi_works;
       this.sdate = moment(info.sdate).format('YYYY-MM-DD') || moment(Date()).format('YYYY-MM-DD');
       this.status = info.status || 'Y';
+      this.user_works = this.fullname
     } else if (info.kpi_id) {
       this.kpi_id = info.kpi_id;
       this.sdate = moment(info.sdate).format('YYYY-MM-DD') || moment(Date()).format('YYYY-MM-DD');
       this.status = info.status || 'Y';
+      this.user_works = this.fullname
     }
     else {
       this.years_id = null;
@@ -118,7 +124,8 @@ export class ModalAddKpidataComponent implements OnInit {
       kpi_datas: this.kpi_datas,
       kpi_works: this.kpi_works,
       sdate: moment(this.sdate).format('YYYY-MM-DD'),
-      status: this.status || 'Y'
+      status: this.status || 'Y',
+      user_works: this.fullname
     }
     // console.log(_info);
     if (this.years_id && this.kpi_datas && this.kpi_works) {

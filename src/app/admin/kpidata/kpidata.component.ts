@@ -24,6 +24,7 @@ export class KpidataComponent implements OnInit {
   kpi_works: any;
   sdate: any;
   status: any;
+  user_works: any;
 
 
 
@@ -40,7 +41,8 @@ export class KpidataComponent implements OnInit {
   openRegister(item: any) {
     console.log(item.kpi_id);
     let info = {
-      kpi_id: item.kpi_id
+      kpi_id: item.kpi_id,
+
     }
 
     this.mdlKpidata.open(info);
