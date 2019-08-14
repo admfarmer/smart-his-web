@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './settings/user/user.component';
 import { AuthGuardService } from '../shared/auth-guard.service';
 import { OvsitdxComponent } from './ovsitdx/ovsitdx.component';
@@ -17,7 +16,6 @@ const routes: Routes = [
       { path: 'kpis', component: KpiComponent },
       { path: 'kpiyears', component: KpiyearsComponent },
       { path: 'kpidatas', component: KpidataComponent },
-      { path: 'dashboard', component: DashboardComponent },
       { path: 'users', component: UserComponent },
       { path: 'ovstdx', component: OvsitdxComponent },
 

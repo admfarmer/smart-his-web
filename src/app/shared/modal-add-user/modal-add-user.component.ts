@@ -62,6 +62,10 @@ export class ModalAddUserComponent implements OnInit {
 
   dismiss() {
     this.modalReference.close();
+    this.userId = null;
+    this.username = null;
+    this.fullname = null;
+    this.password = null;
   }
 
   async save() {

@@ -9,6 +9,7 @@ import { ModalAddUserComponent } from './modal-add-user/modal-add-user.component
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { OvsitdxService } from 'src/app/shared/ovsitdx.service';
+import { ModalAddKpidataComponent } from './modal-add-kpidata/modal-add-kpidata.component';
 
 @NgModule({
   imports: [
@@ -21,13 +22,15 @@ import { OvsitdxService } from 'src/app/shared/ovsitdx.service';
     ShortTimePipe,
     ThaiDatePipe,
     ToggleFullscreenDirective,
-    ModalAddUserComponent
+    ModalAddUserComponent,
+    ModalAddKpidataComponent
   ],
   exports: [
     ShortTimePipe,
     ThaiDatePipe,
     ToggleFullscreenDirective,
-    ModalAddUserComponent
+    ModalAddUserComponent,
+    ModalAddKpidataComponent
   ],
   providers: [
     AuthGuardService,

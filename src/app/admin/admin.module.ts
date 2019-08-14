@@ -8,7 +8,6 @@ import { GrdFilterPipe } from '../shared/grd-filter.pipe';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { UserComponent } from './settings/user/user.component';
@@ -19,7 +18,6 @@ import { KpiyearsComponent } from './settings/kpiyears/kpiyears.component';
 
 @NgModule({
   declarations: [
-    DashboardComponent,
     UserComponent,
     LayoutComponent,
     OvsitdxComponent,

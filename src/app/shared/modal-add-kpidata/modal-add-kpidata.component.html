@@ -1,0 +1,67 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">ผู้ใช้งาน</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="years_id" class="required">ชื่อผู้ใช้งาน</label>
+          <select class="form-control" name="years_id" id="years_id" [(ngModel)]="years_id">
+            <option *ngFor="let item of itemsKpiYears" [value]="item.id">
+              <span *ngIf="item.quarter === '0'">ข้อมูลทั้งปีงบประมาณ </span>
+              <span *ngIf="item.quarter != '0'">ข้อมูลไตรมาสที่ {{item.quarter}} </span>
+              {{item.year}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="kpi_id" class="kpi_id">ตัวชี้วัด</label>
+          <select class="form-control" name="kpi_id" id="kpi_id" [(ngModel)]="kpi_id" disabled>
+            <option *ngFor="let item of itemsKpi" [value]="item.kpi_id">{{item.kpi_name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="kpi_datas" class="required">ผลงาน</label>
+          <input type="text" name="kpi_datas" id="kpi_datas" class="form-control" name="kpi_datas"
+            [(ngModel)]="kpi_datas">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="kpi_works" class="required">รายละเอียดผลงาน</label>
+          <textarea class="form-control" name="kpi_works" [(ngModel)]="kpi_works" id="kpi_works" rows="5"></textarea>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="sdate" class="required">วันที่บันทึก</label>
+          <input type="date" name="sdate" id="sdate" class="form-control" [(ngModel)]="sdate" disabled>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="status" class="required">สถานะ</label>
+          <select class="form-control" name="status" [(ngModel)]="status">
+            <option value="Y">เปิดใช้งาน</option>
+            <option value="N">ยกเลิกใช้งาน</option>
+          </select>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="save()">บันทึก</button>
+    <button type="button" class="btn btn-outline-danger" (click)="dismiss()">ยกเลิก</button>
+  </div>
+</ng-template>

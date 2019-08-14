@@ -28,6 +28,7 @@ export class OvsitdxComponent implements OnInit {
       location.reload();
     }, 50000);
   }
+
   openEdit(item: any) {
 
   }
@@ -42,11 +43,11 @@ export class OvsitdxComponent implements OnInit {
         this.items.forEach(v => {
           const rsx: any = this.ovsitdxService.save(v);
         });
-        this.setupRefresh();
+        // this.setupRefresh();
       } else {
         // console.log(rs.message);
         this.alertService.success('ไม่พบข้อมูล ค้างสั่ง', 'OK');
-        this.setupRefresh();
+        // this.setupRefresh();
 
       }
     } catch (error) {
