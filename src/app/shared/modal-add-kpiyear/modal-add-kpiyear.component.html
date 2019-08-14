@@ -1,0 +1,40 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">ข้อมูลผลงาน</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="quarter" class="quarter">ไตรมาส</label>
+          <input type="text" name="quarter" id="quarter" class="form-control" name="quarter" [(ngModel)]="quarter">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="year" class="required">ปี พศ.</label>
+          <input type="text" name="year" id="year" class="form-control" name="year" [(ngModel)]="year">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="status" class="required">สถานะ</label>
+          <select class="form-control" name="status" [(ngModel)]="status">
+            <option value="Y">เปิดใช้งาน</option>
+            <option value="N">ยกเลิกใช้งาน</option>
+          </select>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="save()">บันทึก</button>
+    <button type="button" class="btn btn-outline-danger" (click)="dismiss()">ยกเลิก</button>
+  </div>
+</ng-template>

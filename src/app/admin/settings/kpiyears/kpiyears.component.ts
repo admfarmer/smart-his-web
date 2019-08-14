@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertService } from 'src/app/shared/alert.service';
 import { KpiDatasService } from 'src/app/shared/kpidatas.service';
+import { ModalAddKpiyearComponent } from 'src/app/shared/modal-add-kpiyear/modal-add-kpiyear.component';
 
 @Component({
   selector: 'app-kpiyears',
   templateUrl: './kpiyears.component.html',
-  styleUrls: ['./kpiyears.component.css']
+  styles: []
 })
 export class KpiyearsComponent implements OnInit {
+
+  @ViewChild('mdlKpiyear') private mdlKpiyear: ModalAddKpiyearComponent;
+
   isCollapsed = true;
   fullname: string;
   userType: string;
@@ -31,12 +35,19 @@ export class KpiyearsComponent implements OnInit {
     this.getKpiYears();
   }
 
+  onSave(event: any) {
+    this.getKpiYears();
+    this.alertService.success();
+  }
+
   openEdit(item: any) {
     console.log(item);
+    this.mdlKpiyear.open(item);
   }
 
   openRegister() {
     console.log('ADD');
+    this.mdlKpiyear.open();
   }
 
   remove(item: any) {

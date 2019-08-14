@@ -21,6 +21,7 @@ export class ModalAddKpidataComponent implements OnInit {
   itemsKpiYears: any = [];
   info: any = {};
 
+  id: any;
   years_id: any;
   kpi_id: any;
   kpi_datas: any;
@@ -38,6 +39,7 @@ export class ModalAddKpidataComponent implements OnInit {
     this.getKpiInfo();
     this.getKpiYears();
   }
+
   open(info: any = null) {
     this.modalReference = this.modalService.open(this.content, {
       ariaLabelledBy: 'modal-basic-title',
@@ -46,15 +48,14 @@ export class ModalAddKpidataComponent implements OnInit {
       size: 'lg',
       centered: false
     });
-    console.log(info);
-
+    // console.log(info);
     if (info.id) {
       this.years_id = info.years_id;
       this.kpi_id = info.kpi_id;
       this.kpi_datas = info.kpi_datas;
       this.kpi_works = info.kpi_works;
       this.sdate = moment(info.sdate).format('YYYY-MM-DD') || moment(Date()).format('YYYY-MM-DD');
-      this.status = info.status || 'N';
+      this.status = info.status || 'Y';
     } else if (info.kpi_id) {
       this.kpi_id = info.kpi_id;
       this.sdate = moment(info.sdate).format('YYYY-MM-DD') || moment(Date()).format('YYYY-MM-DD');
@@ -68,12 +69,49 @@ export class ModalAddKpidataComponent implements OnInit {
       this.sdate = null;
       this.status = null;
     }
-
     this.modalReference.result.then((result) => { });
   }
 
-  async save() {
+  async getYearsItem(years_id: any) {
+    let _info = {
+      years_id: years_id,
+      kpi_id: this.kpi_id
+    }
+    try {
+      // console.log(_info);
+      const rs: any = await this.kpiDatasService.getKpiYearitem(_info);
+      if (rs.info) {
+        // this.itemsKpiYears = rs.info;
+        // console.log(rs.info);
+        let _info = rs.info[0];
+        this.id = _info.id;
+        this.years_id = _info.years_id;
+        this.kpi_id = _info.kpi_id;
+        this.kpi_datas = _info.kpi_datas;
+        this.kpi_works = _info.kpi_works;
+        this.sdate = moment(_info.sdate).format('YYYY-MM-DD');
+        this.status = _info.status;
+      } else {
+        this.id = null;
+        this.kpi_datas = null;
+        this.kpi_works = null;
+        this.sdate = moment(Date()).format('YYYY-MM-DD');
+        this.status = 'Y';
+        // this.alertService.error('เกิดข้อผิดพลาด');
+      }
 
+    } catch (error) {
+      // console.log(error);
+      this.id = null;
+      this.kpi_datas = null;
+      this.kpi_works = null;
+      this.sdate = moment(Date()).format('YYYY-MM-DD');
+      this.status = 'Y';
+      // this.alertService.error('เกิดข้อผิดพลาด');
+    }
+
+  }
+  async save() {
     let _info = {
       years_id: this.years_id,
       kpi_id: this.kpi_id,
@@ -82,24 +120,48 @@ export class ModalAddKpidataComponent implements OnInit {
       sdate: moment(this.sdate).format('YYYY-MM-DD'),
       status: this.status || 'Y'
     }
-
-    console.log(_info);
-
+    // console.log(_info);
     if (this.years_id && this.kpi_datas && this.kpi_works) {
       try {
-        let rs: any = await this.kpiDatasService.save(_info);
-        console.log(rs.info.length);
-
-        if (rs.info.length) {
-          this.modalReference.close();
-          this.onSave.emit();
+        if (this.id) {
+          let _id = this.id;
+          console.log("edit data");
+          let rs: any = await this.kpiDatasService.update(_info, _id);
+          // console.log(rs.info);
+          if (rs.info) {
+            this.modalReference.close();
+            this.onSave.emit();
+            this.id = null;
+            this.years_id = null;
+            this.kpi_id = null;
+            this.kpi_datas = null;
+            this.kpi_works = null;
+            this.sdate = null;
+            this.status = null;
+          } else {
+            this.alertService.error('ไม่สามารถบันทึกข้อมูลได้');
+          }
         } else {
-          this.alertService.error('ไม่สามารถบันทึกข้อมูลได้');
+          console.log("add data");
+          let rs: any = await this.kpiDatasService.save(_info);
+          // console.log(rs.info.length);
+          if (rs.info.length) {
+            this.modalReference.close();
+            this.onSave.emit();
+            this.id = null;
+            this.years_id = null;
+            this.kpi_id = null;
+            this.kpi_datas = null;
+            this.kpi_works = null;
+            this.sdate = null;
+            this.status = null;
+          } else {
+            this.alertService.error('ไม่สามารถบันทึกข้อมูลได้');
+          }
         }
-
       } catch (error) {
         console.log(error);
-        this.alertService.error('เกิดข้อผิดพลาด');
+        // this.alertService.error('เกิดข้อผิดพลาด');
       }
     }
 
@@ -125,7 +187,7 @@ export class ModalAddKpidataComponent implements OnInit {
       }
     } catch (error) {
       console.log(error);
-      this.alertService.error();
+      // this.alertService.error();
     }
   }
 
@@ -140,9 +202,7 @@ export class ModalAddKpidataComponent implements OnInit {
       }
     } catch (error) {
       console.log(error);
-      this.alertService.error();
+      // this.alertService.error();
     }
   }
-
-
 }

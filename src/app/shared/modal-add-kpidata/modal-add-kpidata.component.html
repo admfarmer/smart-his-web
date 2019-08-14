@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">ผู้ใช้งาน</h4>
+    <h4 class="modal-title" id="modal-basic-title">ข้อมูลผลงานตัวชี้วัด</h4>
     <button type="button" class="close" aria-label="Close" (click)="dismiss()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -9,9 +9,9 @@
     <form>
       <div class="form-row">
         <div class="form-group col-md-12">
-          <label for="years_id" class="required">ชื่อผู้ใช้งาน</label>
+          <label for="years_id" class="required">ไตรมาส</label>
           <select class="form-control" name="years_id" id="years_id" [(ngModel)]="years_id">
-            <option *ngFor="let item of itemsKpiYears" [value]="item.id">
+            <option *ngFor="let item of itemsKpiYears" [value]="item.id" (click)="getYearsItem(item.id)">
               <span *ngIf="item.quarter === '0'">ข้อมูลทั้งปีงบประมาณ </span>
               <span *ngIf="item.quarter != '0'">ข้อมูลไตรมาสที่ {{item.quarter}} </span>
               {{item.year}}</option>
@@ -37,7 +37,7 @@
       <div class="form-row">
         <div class="form-group col-md-12">
           <label for="kpi_works" class="required">รายละเอียดผลงาน</label>
-          <textarea class="form-control" name="kpi_works" [(ngModel)]="kpi_works" id="kpi_works" rows="5"></textarea>
+          <textarea class="form-control" name="kpi_works" [(ngModel)]="kpi_works" id="kpi_works" rows="10"></textarea>
         </div>
       </div>
 
