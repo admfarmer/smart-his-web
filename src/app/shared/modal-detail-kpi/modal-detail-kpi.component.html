@@ -1,0 +1,45 @@
+<ng-template #content let-modal>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">รายงานผลงานตัวชี้วัด</h4>
+      <p class="card-description">
+        รายงานตัวชีวัด {{kpi_name}} เป้าหมาย {{kpi_scale}} %
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 20%;">รายละเอียด</th>
+            <th style="width: 10%;">ผลงาน</th>
+            <th style="width: 70%;">ที่มาข้อมูลผลงาน</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="!items.length">
+            <td colspan="5">ไม่พบรายการ</td>
+          </tr>
+          <tr *ngFor="let item of items">
+            <td>
+              <h4>
+                <span *ngIf="item.quarter === '0'">ข้อมูลทั้งปีงบประมาน {{item.year}}</span>
+                <span *ngIf="item.quarter === '1'">ข้อมูลไตรมาสที่ 1 {{item.year}}</span>
+                <span *ngIf="item.quarter === '2'">ข้อมูลไตรมาสที่ 2 {{item.year}}</span>
+                <span *ngIf="item.quarter === '3'">ข้อมูลไตรมาสที่ 3 {{item.year}}</span>
+                <span *ngIf="item.quarter === '4'">ข้อมูลไตรมาสที่ 4 {{item.year}}</span>
+              </h4>
+            </td>
+            <td>
+              <h4>{{item.kpi_datas}}</h4>
+            </td>
+            <td>
+              <h4>{{item.kpi_works}}</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="dismiss()">ปิด</button>
+  </div>
+
+</ng-template>

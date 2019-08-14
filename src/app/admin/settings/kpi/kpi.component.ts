@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertService } from 'src/app/shared/alert.service';
-import { KpiDatasService } from 'src/app/shared/kpidatas.service';
+import { KpiService } from 'src/app/shared/kpi.service';
+import { ModalAddKpiComponent } from 'src/app/shared/modal-add-kpi/modal-add-kpi.component';
 
 @Component({
   selector: 'app-kpi',
   templateUrl: './kpi.component.html',
-  styleUrls: ['./kpi.component.css']
+  styles: []
 })
 export class KpiComponent implements OnInit {
+  @ViewChild('mdlKpi') private mdlKpi: ModalAddKpiComponent;
+
   isCollapsed = true;
   fullname: string;
   userType: string;
@@ -19,7 +22,7 @@ export class KpiComponent implements OnInit {
 
   constructor(
     private alertService: AlertService,
-    private kpiDatasService: KpiDatasService,
+    private kpiService: KpiService,
 
   ) {
     this.fullname = sessionStorage.getItem('fullname');
@@ -34,10 +37,16 @@ export class KpiComponent implements OnInit {
 
   openEdit(item: any) {
     console.log(item);
+    this.mdlKpi.open(item);
   }
 
   openRegister() {
     console.log('ADD');
+    this.mdlKpi.open();
+  }
+  onSave(event: any) {
+    this.getKpiInfo();
+    this.alertService.success();
   }
 
   remove(item: any) {
@@ -46,7 +55,7 @@ export class KpiComponent implements OnInit {
 
   async getKpiInfo() {
     try {
-      const rs: any = await this.kpiDatasService.getKpiInfo();
+      const rs: any = await this.kpiService.getKpiInfo();
       if (rs.info) {
         this.items = rs.info;
         // console.log(this.items);

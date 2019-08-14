@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { OvsitdxService } from 'src/app/shared/ovsitdx.service';
 import { ModalAddKpidataComponent } from './modal-add-kpidata/modal-add-kpidata.component';
 import { ModalAddKpiyearComponent } from './modal-add-kpiyear/modal-add-kpiyear.component';
+import { ModalAddKpiComponent } from './modal-add-kpi/modal-add-kpi.component';
+import { ModalDetailKpiComponent } from './modal-detail-kpi/modal-detail-kpi.component';
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import { ModalAddKpiyearComponent } from './modal-add-kpiyear/modal-add-kpiyear.
     ToggleFullscreenDirective,
     ModalAddUserComponent,
     ModalAddKpidataComponent,
-    ModalAddKpiyearComponent
+    ModalAddKpiyearComponent,
+    ModalAddKpiComponent,
+    ModalDetailKpiComponent
   ],
   exports: [
     ShortTimePipe,
@@ -33,7 +37,9 @@ import { ModalAddKpiyearComponent } from './modal-add-kpiyear/modal-add-kpiyear.
     ToggleFullscreenDirective,
     ModalAddUserComponent,
     ModalAddKpidataComponent,
-    ModalAddKpiyearComponent
+    ModalAddKpiyearComponent,
+    ModalAddKpiComponent,
+    ModalDetailKpiComponent
   ],
   providers: [
     AuthGuardService,

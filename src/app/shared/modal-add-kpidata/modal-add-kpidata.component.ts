@@ -166,6 +166,7 @@ export class ModalAddKpidataComponent implements OnInit {
     }
 
   }
+
   dismiss() {
     this.modalReference.close();
     this.years_id = null;

@@ -4,7 +4,7 @@ import { HttpResponse, HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class KpiYearsService {
+export class KpiService {
   token: any;
   httpOptions: any;
 
@@ -17,23 +17,29 @@ export class KpiYearsService {
       })
     };
   }
-  async getKpiYearsSeclect() {
-    const _url = `${this.apiUrl}/kpi/years/select`;
+
+  async getStgInfo() {
+    const _url = `${this.apiUrl}/kpi/stg/info`;
     return this.httpClient.get(_url, this.httpOptions).toPromise();
   }
 
-  async getKpiYears() {
-    const _url = `${this.apiUrl}/kpi/years/info`;
+  async getKpiDetail(kpi_id: any) {
+    const _url = `${this.apiUrl}/kpi/kpidetail/${kpi_id}`;
+    return this.httpClient.get(_url, this.httpOptions).toPromise();
+  }
+
+  async getKpiInfo() {
+    const _url = `${this.apiUrl}/kpi/select`;
     return this.httpClient.get(_url, this.httpOptions).toPromise();
   }
 
   async save(info: object) {
-    const _url = `${this.apiUrl}/kpi/years/insert`;
+    const _url = `${this.apiUrl}/kpi/insert`;
     return this.httpClient.post(_url, info, this.httpOptions).toPromise();
   }
 
-  async update(info: object, id: any) {
-    const _url = `${this.apiUrl}/kpi/years/${id}`;
+  async update(info: object, kpi_id: any) {
+    const _url = `${this.apiUrl}/kpi/${kpi_id}`;
     return this.httpClient.put(_url, info, this.httpOptions).toPromise();
   }
 

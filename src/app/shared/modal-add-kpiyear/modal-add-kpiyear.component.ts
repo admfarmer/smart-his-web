@@ -29,6 +29,7 @@ export class ModalAddKpiyearComponent implements OnInit {
     private alertService: AlertService,
     private kpiYearsService: KpiYearsService
   ) { }
+
   ngOnInit() {
   }
 
@@ -56,20 +57,6 @@ export class ModalAddKpiyearComponent implements OnInit {
     this.modalReference.result.then((result) => { });
   }
 
-  async getKpiYears() {
-    try {
-      const rs: any = await this.kpiYearsService.getKpiYears();
-      if (rs.info) {
-        this.items = rs.info;
-        // console.log(this.items);
-      } else {
-        this.alertService.error('เกิดข้อผิดพลาด');
-      }
-    } catch (error) {
-      console.log(error);
-      // this.alertService.error();
-    }
-  }
   async save() {
     console.log("save");
 

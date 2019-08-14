@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertService } from 'src/app/shared/alert.service';
-import { KpiDatasService } from 'src/app/shared/kpidatas.service';
+import { KpiYearsService } from 'src/app/shared/kpiyears.service';
 import { ModalAddKpiyearComponent } from 'src/app/shared/modal-add-kpiyear/modal-add-kpiyear.component';
 
 @Component({
@@ -23,7 +23,7 @@ export class KpiyearsComponent implements OnInit {
 
   constructor(
     private alertService: AlertService,
-    private kpiDatasService: KpiDatasService,
+    private kpiYearsService: KpiYearsService,
 
   ) {
     this.fullname = sessionStorage.getItem('fullname');
@@ -56,7 +56,7 @@ export class KpiyearsComponent implements OnInit {
 
   async getKpiYears() {
     try {
-      const rs: any = await this.kpiDatasService.getKpiYears();
+      const rs: any = await this.kpiYearsService.getKpiYearsSeclect();
       if (rs.info) {
         this.items = rs.info;
         // console.log(this.items);

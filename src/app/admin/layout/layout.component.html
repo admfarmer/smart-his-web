@@ -50,7 +50,7 @@
             <i class="mdi mdi-animation-play menu-icon"></i>
           </a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active" *ngIf="userType === 'ADMIN'">
           <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/ovstdx">
             <span class="menu-title">รายงานไข้เลือดออก 2019</span>
             <i class="mdi mdi-animation-play menu-icon"></i>

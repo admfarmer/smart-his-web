@@ -32,7 +32,7 @@
               <button class="btn btn-sm btn-gradient-primary" (click)="openRegister(item)"><i
                   class="mdi mdi-arrow-right"></i>
                 บันทึก</button>
-              <button class="btn btn-sm btn-gradient-primary" (click)="openText(item.kpi_detail)">
+              <button class="btn btn-sm btn-gradient-primary" (click)="openText(item.kpi_id)">
                 รายละเอียด</button>
             </div>
           </td>
@@ -50,4 +50,5 @@
   </div>
 </div>
 
-<app-modal-add-kpidata #mdlKpidata (onSave)="onSave($event)"> </app-modal-add-kpidata>
+<app-modal-add-kpidata #mdlKpidata (onSave)="onSave($event)"></app-modal-add-kpidata>
+<app-modal-detail-kpi #mdlKpiDetail (onSave)="onSave($event)"></app-modal-detail-kpi>

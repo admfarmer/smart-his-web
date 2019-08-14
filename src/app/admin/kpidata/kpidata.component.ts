@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertService } from 'src/app/shared/alert.service';
 import { KpiDatasService } from 'src/app/shared/kpidatas.service';
 import { ModalAddKpidataComponent } from 'src/app/shared/modal-add-kpidata/modal-add-kpidata.component';
+import { ModalDetailKpiComponent } from 'src/app/shared/modal-detail-kpi/modal-detail-kpi.component';
 
 @Component({
   selector: 'app-kpidata',
@@ -11,6 +12,7 @@ import { ModalAddKpidataComponent } from 'src/app/shared/modal-add-kpidata/modal
 export class KpidataComponent implements OnInit {
 
   @ViewChild('mdlKpidata') private mdlKpidata: ModalAddKpidataComponent;
+  @ViewChild('mdlKpiDetail') private mdlKpiDetail: ModalDetailKpiComponent;
 
   items: any = [];
   info: any = {};
@@ -55,9 +57,14 @@ export class KpidataComponent implements OnInit {
   }
 
 
-  openText(item: any) {
-    console.log(item);
-    this.alertService.info(item);
+  openText(kpi_id: any) {
+    console.log(kpi_id);
+    let info = {
+      kpi_id: kpi_id
+    }
+
+    this.mdlKpiDetail.open(info);
+    // this.alertService.info(item);
 
   }
 
