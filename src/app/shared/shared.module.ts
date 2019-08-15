@@ -14,6 +14,12 @@ import { ModalAddKpiyearComponent } from './modal-add-kpiyear/modal-add-kpiyear.
 import { ModalAddKpiComponent } from './modal-add-kpi/modal-add-kpi.component';
 import { ModalDetailKpiComponent } from './modal-detail-kpi/modal-detail-kpi.component';
 
+import { KpiService } from 'src/app/shared/kpi.service';
+import { KpiDatasService } from 'src/app/shared/kpidatas.service';
+import { KpiYearsService } from 'src/app/shared/kpiyears.service';
+import { HisIncothService } from 'src/app/shared/his-incoth.service';
+import { ModalAddIncothComponent } from './modal-add-incoth/modal-add-incoth.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -29,7 +35,8 @@ import { ModalDetailKpiComponent } from './modal-detail-kpi/modal-detail-kpi.com
     ModalAddKpidataComponent,
     ModalAddKpiyearComponent,
     ModalAddKpiComponent,
-    ModalDetailKpiComponent
+    ModalDetailKpiComponent,
+    ModalAddIncothComponent
   ],
   exports: [
     ShortTimePipe,
@@ -39,12 +46,17 @@ import { ModalDetailKpiComponent } from './modal-detail-kpi/modal-detail-kpi.com
     ModalAddKpidataComponent,
     ModalAddKpiyearComponent,
     ModalAddKpiComponent,
-    ModalDetailKpiComponent
+    ModalDetailKpiComponent,
+    ModalAddIncothComponent
   ],
   providers: [
     AuthGuardService,
     LoginService,
-    OvsitdxService
+    OvsitdxService,
+    KpiService,
+    KpiDatasService,
+    KpiYearsService,
+    HisIncothService
   ]
 })
 export class SharedModule { }

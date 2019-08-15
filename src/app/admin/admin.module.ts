@@ -15,6 +15,7 @@ import { OvsitdxComponent } from './ovsitdx/ovsitdx.component';
 import { KpidataComponent } from './kpidata/kpidata.component';
 import { KpiComponent } from './settings/kpi/kpi.component';
 import { KpiyearsComponent } from './settings/kpiyears/kpiyears.component';
+import { HisincothComponent } from './hisincoth/hisincoth.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { KpiyearsComponent } from './settings/kpiyears/kpiyears.component';
     KpidataComponent,
     GrdFilterPipe,
     KpiComponent,
-    KpiyearsComponent
+    KpiyearsComponent,
+    HisincothComponent
   ],
   imports: [
     CommonModule,

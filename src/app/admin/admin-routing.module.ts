@@ -7,6 +7,7 @@ import { OvsitdxComponent } from './ovsitdx/ovsitdx.component';
 import { KpidataComponent } from './kpidata/kpidata.component';
 import { KpiComponent } from './settings/kpi/kpi.component';
 import { KpiyearsComponent } from './settings/kpiyears/kpiyears.component';
+import { HisincothComponent } from './hisincoth/hisincoth.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
     children: [
       { path: '', redirectTo: 'kpidatas', pathMatch: 'full' },
+      { path: 'incoth', component: HisincothComponent },
       { path: 'kpis', component: KpiComponent },
       { path: 'kpiyears', component: KpiyearsComponent },
       { path: 'kpidatas', component: KpidataComponent },
