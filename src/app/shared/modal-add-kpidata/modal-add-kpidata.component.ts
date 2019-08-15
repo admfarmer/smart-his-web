@@ -79,12 +79,14 @@ export class ModalAddKpidataComponent implements OnInit {
   }
 
   async getYearsItem(years_id: any) {
+    console.log(years_id);
+
     let _info = {
       years_id: years_id,
       kpi_id: this.kpi_id
     }
     try {
-      // console.log(_info);
+      console.log(_info);
       const rs: any = await this.kpiDatasService.getKpiYearitem(_info);
       if (rs.info) {
         // this.itemsKpiYears = rs.info;
