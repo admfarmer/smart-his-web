@@ -88,8 +88,8 @@ export class ModalAddKpidataComponent implements OnInit {
       const rs: any = await this.kpiDatasService.getKpiYearitem(_info);
       if (rs.info) {
         // this.itemsKpiYears = rs.info;
-        // console.log(rs.info);
         let _info = rs.info[0];
+        console.log(_info);
         this.id = _info.id;
         this.years_id = _info.years_id;
         this.kpi_id = _info.kpi_id;
