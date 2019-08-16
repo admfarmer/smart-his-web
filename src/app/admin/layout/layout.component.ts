@@ -25,6 +25,7 @@ export class LayoutComponent implements OnInit {
   isCollapedDisplay: boolean = true;
   isCollapedCaller: boolean = true;
   isCollapedSettings: boolean = true;
+  isCollapedHisEdit: boolean = true;
 
   constructor(private router: Router) { }
 

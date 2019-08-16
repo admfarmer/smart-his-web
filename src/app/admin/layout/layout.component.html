@@ -50,17 +50,31 @@
             <i class="mdi mdi-animation-play menu-icon"></i>
           </a>
         </li>
-        <li class="nav-item" routerLinkActive="active" *ngIf="userType === 'ADMIN'">
-          <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/ovstdx">
-            <span class="menu-title">รายงานไข้เลือดออก 2019</span>
-            <i class="mdi mdi-animation-play menu-icon"></i>
+        <div class="border-bottom"></div>
+
+        <li class="nav-item">
+          <a class="nav-link" (click)="isCollapedHisEdit = !isCollapedHisEdit" data-toggle="collapse"
+            href="javascript://" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-title font-weight-bold">ข้อมูลการบริการ</span>
+            <i class="mdi mdi-chevron-right menu-icon" *ngIf="isCollapedHisEdit"></i>
+            <i class="mdi mdi-chevron-down menu-icon" *ngIf="!isCollapedHisEdit"></i>
           </a>
-        </li>
-        <li class="nav-item" routerLinkActive="active" *ngIf="userType === 'ADMIN' || userType === 'INCOTH'">
-          <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/incoth">
-            <span class="menu-title">บันทึกแก้ไขค่าใช้จ่าย</span>
-            <i class="mdi mdi-animation-play menu-icon"></i>
-          </a>
+          <div [ngbCollapse]="isCollapedHisEdit" class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item" routerLinkActive="active" *ngIf="userType === 'ADMIN'">
+                <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/ovstdx">
+                  <span class="menu-title">รายงานไข้เลือดออก 2019</span>
+                  <i class="mdi mdi-animation-play menu-icon"></i>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="active" *ngIf="userType === 'ADMIN' || userType === 'INCOTH'">
+                <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/incoth">
+                  <span class="menu-title">บันทึกแก้ไขค่าใช้จ่าย</span>
+                  <i class="mdi mdi-animation-play menu-icon"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </li>
         <div class="border-bottom"></div>
 
@@ -91,7 +105,6 @@
             </ul>
           </div>
         </li>
-
       </ul>
     </nav>
 
