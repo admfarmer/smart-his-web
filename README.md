@@ -4,7 +4,7 @@ git clone https://github.com/admfarmer/smart-his-web.git
 cd smart-his-web
 npm i
 
-#pm2 
+# pm2 
 
 npm run build
 
