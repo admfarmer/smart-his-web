@@ -74,6 +74,12 @@
                   <i class="mdi mdi-animation-play menu-icon"></i>
                 </a>
               </li>
+              <li class="nav-item" routerLinkActive="active" *ngIf="userType === 'ADMIN' || userType === 'INCOTH'">
+                <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/rcpt">
+                  <span class="menu-title">บันทึกค่าใช้จ่ายย้อนหลัง</span>
+                  <i class="mdi mdi-animation-play menu-icon"></i>
+                </a>
+              </li>
             </ul>
           </div>
         </li>

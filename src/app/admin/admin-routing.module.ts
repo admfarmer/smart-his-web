@@ -8,6 +8,7 @@ import { KpidataComponent } from './kpidata/kpidata.component';
 import { KpiComponent } from './settings/kpi/kpi.component';
 import { KpiyearsComponent } from './settings/kpiyears/kpiyears.component';
 import { HisincothComponent } from './hisincoth/hisincoth.component';
+import { HisrcptComponent } from './hisrcpt/hisrcpt.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,7 @@ const routes: Routes = [
       { path: 'kpidatas', component: KpidataComponent },
       { path: 'users', component: UserComponent },
       { path: 'ovstdx', component: OvsitdxComponent },
-
+      { path: 'rcpt', component: HisrcptComponent },
     ]
   },
 

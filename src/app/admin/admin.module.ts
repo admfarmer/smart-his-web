@@ -16,6 +16,7 @@ import { KpidataComponent } from './kpidata/kpidata.component';
 import { KpiComponent } from './settings/kpi/kpi.component';
 import { KpiyearsComponent } from './settings/kpiyears/kpiyears.component';
 import { HisincothComponent } from './hisincoth/hisincoth.component';
+import { HisrcptComponent } from './hisrcpt/hisrcpt.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HisincothComponent } from './hisincoth/hisincoth.component';
     GrdFilterPipe,
     KpiComponent,
     KpiyearsComponent,
-    HisincothComponent
+    HisincothComponent,
+    HisrcptComponent
   ],
   imports: [
     CommonModule,

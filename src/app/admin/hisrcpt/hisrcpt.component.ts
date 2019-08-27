@@ -2,16 +2,15 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertService } from 'src/app/shared/alert.service';
 import { HisIncothService } from 'src/app/shared/his-incoth.service';
 import * as moment from 'moment';
-import { ModalAddIncothComponent } from 'src/app/shared/modal-add-incoth/modal-add-incoth.component';
-
+import { ModalAddRcptComponent } from 'src/app/shared/modal-add-rcpt/modal-add-rcpt.component'
 @Component({
-  selector: 'app-hisincoth',
-  templateUrl: './hisincoth.component.html',
+  selector: 'app-hisrcpt',
+  templateUrl: './hisrcpt.component.html',
   styles: []
 })
-export class HisincothComponent implements OnInit {
+export class HisrcptComponent implements OnInit {
 
-  @ViewChild('mdlIncoth') private mdlIncoth: ModalAddIncothComponent;
+  @ViewChild('mdlRcpt') private mdlRcpt: ModalAddRcptComponent;
 
   items: any = [];
   info: any = {};
@@ -48,7 +47,7 @@ export class HisincothComponent implements OnInit {
 
   openEdit(item: any) {
     // console.log(item);
-    this.mdlIncoth.open(item);
+    this.mdlRcpt.open(item);
   }
 
   async getKpiInfo() {
@@ -56,7 +55,7 @@ export class HisincothComponent implements OnInit {
     let _vstdttmText = moment(this.vstdttmText).format('YYYYMMDD');
 
     try {
-      const rs: any = await this.hisIncothService.getInfo(_hnText, _vstdttmText);
+      const rs: any = await this.hisIncothService.getInfoViews(_hnText, _vstdttmText);
       if (rs.info) {
         this.items = rs.info;
         // console.log(this.items);

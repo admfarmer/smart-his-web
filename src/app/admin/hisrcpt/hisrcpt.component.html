@@ -1,0 +1,73 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">บันทึกค่าใช้จ่ายย้อนหลัง</h4>
+
+    <div class="modal-body">
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="hnText" class="required">HN</label>
+            <input type="text" name="hnText" id="hnText" class="form-control" [(ngModel)]="hnText"
+              placeholder="40701..">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="vstdttmText" class="required">วันที่รับบริการ</label>
+            <input type="date" name="vstdttmText" id="vstdttmText" class="form-control" [(ngModel)]="vstdttmText">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="getKpiInfo()">ค้นหาการบริการ</button>
+    </div>
+
+
+    ค้นหา :
+    <input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+
+    <table class="table table-striped" [mfData]="items" #mf="mfDataTable" [mfRowsOnPage]="10">
+      <thead>
+        <tr>
+          <th>HN</th>
+          <th>ชื่อ - สกุล</th>
+          <th>สิทธิ์การรักษา</th>
+          <th>วันที่รับบริการ</th>
+          <th style="width: 50px;">##</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of mf.data | grdFilter: {hn: searchText, namepttype:searchText, owner: searchText}">
+          <td>
+            <h4>{{item.hn}}</h4>
+          </td>
+          <td>
+            <h4>{{item.fullname}}</h4>
+          </td>
+          <td>
+            <h4>{{item.pttype}}</h4>
+          </td>
+          <td>
+            <h4>{{item.vstdttm | date: 'yyyy-MM-dd'}}</h4>
+          </td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-gradient-primary" (click)="openEdit(item)"><i
+                  class="mdi mdi-arrow-right"></i>
+                บันทึกค่าใช้จ่าย</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6">
+            <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<app-modal-add-rcpt #mdlRcpt (onSave)="onSave($event)"></app-modal-add-rcpt>

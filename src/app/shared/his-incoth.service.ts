@@ -23,8 +23,26 @@ export class HisIncothService {
     return this.httpClient.get(_url, this.httpOptions).toPromise();
   }
 
+  async getInfoViews(hn: any, vstdttm: any) {
+    const _url = `${this.apiUrl}/incoth/infoOvst/${hn}/${vstdttm}`;
+    return this.httpClient.get(_url, this.httpOptions).toPromise();
+  }
+  async getIncothVn(vn: any) {
+    const _url = `${this.apiUrl}/incoth/incothVn/${vn}`;
+    return this.httpClient.get(_url, this.httpOptions).toPromise();
+  }
+
   async update(info: object, id: any) {
     const _url = `${this.apiUrl}/incoth/${id}`;
+    return this.httpClient.put(_url, info, this.httpOptions).toPromise();
+  }
+  async updateRcpt(info: object, vn: any) {
+    const _url = `${this.apiUrl}/incoth/updatercpt/${vn}`;
+    return this.httpClient.put(_url, info, this.httpOptions).toPromise();
+  }
+
+  async updateOvst(info: object, vn: any) {
+    const _url = `${this.apiUrl}/incoth/updateovst/${vn}`;
     return this.httpClient.put(_url, info, this.httpOptions).toPromise();
   }
 

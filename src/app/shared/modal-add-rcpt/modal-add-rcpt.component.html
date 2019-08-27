@@ -1,0 +1,77 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">ข้อมูลค่าใช้จ่าย</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>HN</th>
+          <th>สิทธิ์การรักษา</th>
+          <th>หมวดค่าใช้จ่าย</th>
+          <th>ราคา</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td>
+            <h4>{{item.hn}}</h4>
+          </td>
+          <td>
+            <h4>{{item.namepttype}}</h4>
+          </td>
+          <td>
+            <h4>{{item.namecost}}</h4>
+          </td>
+          <td>
+            <h4>{{item.rcptamt}}</h4>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6">
+            <h2>ราคารวมทั้งหมด [{{item_amnt}}]</h2>
+          </td>
+        </tr>
+      </tfoot>
+
+    </table>
+
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="rcptamt" class="required">
+            <h4>เรียกเก็บค่าใช้จ่ายได้ :</h4>
+          </label>
+          <input type="text" name="rcptamt" id="rcptamt" class="form-control" [(ngModel)]="rcptamt"
+            (input)="creditInput(rcptamt)">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="credit" class="required">
+            <h4>ค้างจ่าย :</h4>
+          </label>
+          <input type="text" name="credit" id="credit" class="form-control" [(ngModel)]="credit">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="gpageno" class="required">
+            <h4>เลขที่ใบเสร็จ :</h4>
+          </label>
+          <input type="text" name="gpageno" id="gpageno" class="form-control" [(ngModel)]="gpageno">
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="save()">บันทึก</button>
+    <button type="button" class="btn btn-outline-danger" (click)="dismiss()">ยกเลิก</button>
+  </div>
+</ng-template>
