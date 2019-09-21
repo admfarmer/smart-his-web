@@ -16,6 +16,7 @@ export class VisitComponent implements OnInit {
   items: any = [];
   itemService: any = [];
   info: any = {};
+  searchText: string;
 
   hn: any;
   cid: any;
