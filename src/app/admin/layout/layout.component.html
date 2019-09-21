@@ -44,9 +44,16 @@
             <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
           </a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active" *ngIf="userType === 'ADMIN'  || userType === 'MEMBER' ">
           <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/kpidatas">
             <span class="menu-title">บันทึกผลงานตัวชี้วัด</span>
+            <i class="mdi mdi-animation-play menu-icon"></i>
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active"
+          *ngIf="userType === 'ADMIN'  || userType === 'MEMBER'  || userType === 'REPORT'">
+          <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/visit">
+            <span class="menu-title">ประวัติการรักษา</span>
             <i class="mdi mdi-animation-play menu-icon"></i>
           </a>
         </li>

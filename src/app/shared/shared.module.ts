@@ -14,6 +14,7 @@ import { ModalAddKpiyearComponent } from './modal-add-kpiyear/modal-add-kpiyear.
 import { ModalAddKpiComponent } from './modal-add-kpi/modal-add-kpi.component';
 import { ModalDetailKpiComponent } from './modal-detail-kpi/modal-detail-kpi.component';
 
+import { HisVisitService } from 'src/app/shared/his-visit.service';
 import { KpiService } from 'src/app/shared/kpi.service';
 import { KpiDatasService } from 'src/app/shared/kpidatas.service';
 import { KpiYearsService } from 'src/app/shared/kpiyears.service';
@@ -21,6 +22,7 @@ import { HisIncothService } from 'src/app/shared/his-incoth.service';
 import { HisRcptService } from 'src/app/shared/his-rcpt.service';
 import { ModalAddIncothComponent } from './modal-add-incoth/modal-add-incoth.component';
 import { ModalAddRcptComponent } from './modal-add-rcpt/modal-add-rcpt.component';
+import { ModalDetailVisitComponent } from './modal-detail-visit/modal-detail-visit.component';
 
 @NgModule({
   imports: [
@@ -39,7 +41,8 @@ import { ModalAddRcptComponent } from './modal-add-rcpt/modal-add-rcpt.component
     ModalAddKpiComponent,
     ModalDetailKpiComponent,
     ModalAddIncothComponent,
-    ModalAddRcptComponent
+    ModalAddRcptComponent,
+    ModalDetailVisitComponent
   ],
   exports: [
     ShortTimePipe,
@@ -51,7 +54,8 @@ import { ModalAddRcptComponent } from './modal-add-rcpt/modal-add-rcpt.component
     ModalAddKpiComponent,
     ModalDetailKpiComponent,
     ModalAddIncothComponent,
-    ModalAddRcptComponent
+    ModalAddRcptComponent,
+    ModalDetailVisitComponent
   ],
   providers: [
     AuthGuardService,
@@ -61,7 +65,8 @@ import { ModalAddRcptComponent } from './modal-add-rcpt/modal-add-rcpt.component
     KpiDatasService,
     KpiYearsService,
     HisIncothService,
-    HisRcptService
+    HisRcptService,
+    HisVisitService
   ]
 })
 export class SharedModule { }

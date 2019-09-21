@@ -9,6 +9,7 @@ import { KpiComponent } from './settings/kpi/kpi.component';
 import { KpiyearsComponent } from './settings/kpiyears/kpiyears.component';
 import { HisincothComponent } from './hisincoth/hisincoth.component';
 import { HisrcptComponent } from './hisrcpt/hisrcpt.component';
+import { VisitComponent } from './visit/visit.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'users', component: UserComponent },
       { path: 'ovstdx', component: OvsitdxComponent },
       { path: 'rcpt', component: HisrcptComponent },
+      { path: 'visit', component: VisitComponent },
     ]
   },
 

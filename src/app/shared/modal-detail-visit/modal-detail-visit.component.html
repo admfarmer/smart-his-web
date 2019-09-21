@@ -1,0 +1,330 @@
+<ng-template #content let-modal>
+  <div class="card" *ngIf="profile">
+    <div class="card-body">
+      <!-- <h4 class="card-title">profile</h4> -->
+      <p class="card-description">
+        รายงาน profile
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10%;">hn</th>
+            <th style="width: 10%;">cid</th>
+            <th style="width: 40%;">ชื่อ-สกุล</th>
+            <th style="width: 40%;">สิทธิ์การรักษา</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of profile">
+            <td>
+              <h4>{{item.hn}}</h4>
+            </td>
+            <td>
+              <h4>{{item.cid}}</h4>
+            </td>
+            <td>
+              <h4>{{item.title_name}}{{item.first_name}} {{item.last_name}}</h4>
+            </td>
+            <td>
+              <h4>{{item.pttype}}</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="items.diagnosis">
+    <div class="card-body">
+      <!-- <h4 class="card-title">diagnosis</h4> -->
+      <p class="card-description">
+        รายงาน diagnosis
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10%;">diag_type</th>
+            <th style="width: 10%;">icd_code</th>
+            <th style="width: 40%;">icd_name</th>
+            <th style="width: 40%;">วันที่รับบริการ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items.diagnosis">
+            <td>
+              <h4>{{item.diag_type}}</h4>
+            </td>
+            <td>
+              <h4>{{item.icd_code}}</h4>
+            </td>
+            <td>
+              <h4>{{item.icd_name}}</h4>
+            </td>
+            <td>
+              <h4>{{item.date_serv}} {{item.time_serv}}</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="items.drugs">
+    <div class="card-body">
+      <!-- <h4 class="card-title">drugs</h4> -->
+      <p class="card-description">
+        รายงาน drugs
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10%;">drug_name</th>
+            <th style="width: 10%;">qty</th>
+            <th style="width: 40%;">usage_line</th>
+            <th style="width: 40%;">วันที่รับบริการ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items.drugs">
+            <td>
+              <h4>{{item.drug_name}}</h4>
+            </td>
+            <td>
+              <h4>{{item.qty}} {{item.unit}}</h4>
+            </td>
+            <td>
+              <h4>{{item.usage_line1}}<br></h4>
+              <h4>{{item.usage_line2}}<br></h4>
+              <h4 *ngIf="items.usage_line3">{{item.usage_line3}}</h4>
+            </td>
+            <td>
+              <h4>{{item.date_serv}} {{item.time_serv}}</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="items.procedure">
+    <div class="card-body">
+      <!-- <h4 class="card-title">procedure</h4> -->
+      <p class="card-description">
+        รายงาน procedure
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10%;">procedure_code</th>
+            <th style="width: 10%;">procedure_name</th>
+            <th style="width: 40%;">วันที่รับบริการ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items.procedure">
+            <td>
+              <h4>{{item.procedure_code}}</h4>
+            </td>
+            <td>
+              <h4>{{item.procedure_name}}</h4>
+            </td>
+            <td>
+              <h4>{{item.date_serv}} {{item.time_serv}}</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="items.appointment">
+    <div class="card-body">
+      <!-- <h4 class="card-title">appointment</h4> -->
+      <p class="card-description">
+        รายงาน appointment
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10%;">clinic</th>
+            <th style="width: 10%;">detail</th>
+            <th style="width: 40%;">วันที่รับบริการ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items.appointment">
+            <td>
+              <h4>{{item.clinic}}</h4>
+            </td>
+            <td>
+              <h4>{{item.detail}}</h4>
+            </td>
+            <td>
+              <h4>{{item.date_serv}} {{item.time_serv}}</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="items.lab">
+    <div class="card-body">
+      <!-- <h4 class="card-title">appointment</h4> -->
+      <p class="card-description">
+        รายงาน lab
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10%;">lab_name</th>
+            <th style="width: 10%;">lab_result</th>
+            <th style="width: 40%;">วันที่รับบริการ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items.lab">
+            <td>
+              <h4>{{item.lab_name}}</h4>
+            </td>
+            <td>
+              <h4>{{item.lab_result}} {{item.standard_result}}</h4>
+            </td>
+            <td>
+              <h4>{{item.date_serv}} {{item.time_serv}}</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="items.refer">
+    <div class="card-body">
+      <!-- <h4 class="card-title">refer</h4> -->
+      <p class="card-description">
+        รายงาน refer
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10%;">to_provider_code</th>
+            <th style="width: 10%;">to_provider_name</th>
+            <th style="width: 10%;">reason</th>
+            <th style="width: 40%;">วันที่รับบริการ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items.refer">
+            <td>
+              <h4>{{item.to_provider_code}}</h4>
+            </td>
+            <td>
+              <h4>{{item.to_provider_name}}</h4>
+            </td>
+            <td>
+              <h4>{{item.reason}}</h4>
+            </td>
+            <td>
+              <h4>{{item.date_serv}} {{item.time_serv}}</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="items.vaccines">
+    <div class="card-body">
+      <!-- <h4 class="card-title">vaccines</h4> -->
+      <p class="card-description">
+        รายงาน vaccines
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10%;">vaccine_code</th>
+            <th style="width: 10%;">vaccine_name</th>
+            <th style="width: 40%;">วันที่รับบริการ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items.vaccines">
+            <td>
+              <h4>{{item.vaccine_code}}</h4>
+            </td>
+            <td>
+              <h4>{{item.vaccine_name}}</h4>
+            </td>
+            <td>
+              <h4>{{item.date_serv}} {{item.time_serv}}</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="items.chronic">
+    <div class="card-body">
+      <!-- <h4 class="card-title">chronic</h4> -->
+      <p class="card-description">
+        รายงาน chronic
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10%;">icd_code</th>
+            <th style="width: 10%;">icd_name</th>
+            <th style="width: 40%;">วันที่ลงทะเบียน</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items.chronic">
+            <td>
+              <h4>{{item.icd_code}}</h4>
+            </td>
+            <td>
+              <h4>{{item.icd_name}}</h4>
+            </td>
+            <td>
+              <h4>{{item.start_date}} {{item.time_serv}}</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="items.allergy">
+    <div class="card-body">
+      <!-- <h4 class="card-title">allergy</h4> -->
+      <p class="card-description">
+        รายงาน allergy
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10%;">drug_name</th>
+            <th style="width: 10%;">symptom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items.allergy">
+            <td>
+              <h4>{{item.drug_name}}</h4>
+            </td>
+            <td>
+              <h4>{{item.symptom}}</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="dismiss()">ปิด</button>
+  </div>
+
+</ng-template>
