@@ -60,7 +60,7 @@
 
         <div class="border-bottom"></div>
 
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="userType === 'ADMIN' || userType === 'INCOTH'">
           <a class="nav-link" (click)="isCollapedHisEdit = !isCollapedHisEdit" data-toggle="collapse"
             href="javascript://" aria-expanded="false" aria-controls="ui-basic">
             <span class="menu-title font-weight-bold">ข้อมูลการบริการ</span>
@@ -93,7 +93,7 @@
 
         <div class="border-bottom"></div>
 
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="userType === 'ADMIN'">
           <a class="nav-link" (click)="isCollapedSettings = !isCollapedSettings" data-toggle="collapse"
             href="javascript://" aria-expanded="false" aria-controls="ui-basic">
             <span class="menu-title font-weight-bold">ตั้งค่าการใช้งาน</span>
