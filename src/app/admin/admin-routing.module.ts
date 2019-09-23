@@ -16,7 +16,7 @@ const routes: Routes = [
     path: 'admin', component: LayoutComponent,
     canActivate: [AuthGuardService],
     children: [
-      { path: '', redirectTo: 'kpidatas', pathMatch: 'full' },
+      { path: '', redirectTo: 'visit', pathMatch: 'full' },
       { path: 'incoth', component: HisincothComponent },
       { path: 'kpis', component: KpiComponent },
       { path: 'kpiyears', component: KpiyearsComponent },
