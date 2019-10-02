@@ -31,6 +31,7 @@ export class IptuploadComponent {
   document_id: any;
   file_name: any;
   hnText: any;
+  select: any = 'HN';
 
   constructor(
     private alertService: AlertService,
@@ -46,16 +47,28 @@ export class IptuploadComponent {
 
   async getIptInfo() {
     try {
-      const rs: any = await this.hisIptService.getIptInfo(this.hnText);
-      if (rs.info) {
-        this.items = [];
-        let _items = rs.info;
-        _items.forEach(v => {
-          this.getFilesList(v);
-        });
-
+      if (this.select == 'HN') {
+        const rs: any = await this.hisIptService.getIptInfo(this.hnText);
+        if (rs.info) {
+          this.items = [];
+          let _items = rs.info;
+          _items.forEach(v => {
+            this.getFilesList(v);
+          });
+        } else {
+          this.alertService.error('เกิดข้อผิดพลาด');
+        }
       } else {
-        this.alertService.error('เกิดข้อผิดพลาด');
+        const rs: any = await this.hisIptService.getIptAn(this.hnText);
+        if (rs.info) {
+          this.items = [];
+          let _items = rs.info;
+          _items.forEach(v => {
+            this.getFilesList(v);
+          });
+        } else {
+          this.alertService.error('เกิดข้อผิดพลาด');
+        }
       }
     } catch (error) {
       console.log(error);

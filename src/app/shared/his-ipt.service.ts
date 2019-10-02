@@ -23,4 +23,9 @@ export class HisIptService {
     return this.httpClient.get(_url, this.httpOptions).toPromise();
   }
 
+  async getIptAn(an: any) {
+    const _url = `${this.apiUrl}/ipt/infoAn/${an}`;
+    return this.httpClient.get(_url, this.httpOptions).toPromise();
+  }
+
 }
