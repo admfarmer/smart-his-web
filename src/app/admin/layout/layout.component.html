@@ -57,6 +57,12 @@
             <i class="mdi mdi-animation-play menu-icon"></i>
           </a>
         </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="userType === 'ADMIN'  || userType === 'MEMBER'">
+          <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/iptupload">
+            <span class="menu-title">บันทึกชาร์ทผู้ป่ายใน</span>
+            <i class="mdi mdi-animation-play menu-icon"></i>
+          </a>
+        </li>
 
         <div class="border-bottom"></div>
 

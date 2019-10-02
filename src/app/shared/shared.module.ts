@@ -5,14 +5,8 @@ import { LoginService } from './login.service';
 import { ShortTimePipe } from './short-time.pipe';
 import { ThaiDatePipe } from './thai-date.pipe';
 import { ToggleFullscreenDirective } from './toggle-fullscreen.directive';
-import { ModalAddUserComponent } from './modal-add-user/modal-add-user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { OvsitdxService } from 'src/app/shared/ovsitdx.service';
-import { ModalAddKpidataComponent } from './modal-add-kpidata/modal-add-kpidata.component';
-import { ModalAddKpiyearComponent } from './modal-add-kpiyear/modal-add-kpiyear.component';
-import { ModalAddKpiComponent } from './modal-add-kpi/modal-add-kpi.component';
-import { ModalDetailKpiComponent } from './modal-detail-kpi/modal-detail-kpi.component';
 
 import { HisVisitService } from 'src/app/shared/his-visit.service';
 import { KpiService } from 'src/app/shared/kpi.service';
@@ -20,9 +14,19 @@ import { KpiDatasService } from 'src/app/shared/kpidatas.service';
 import { KpiYearsService } from 'src/app/shared/kpiyears.service';
 import { HisIncothService } from 'src/app/shared/his-incoth.service';
 import { HisRcptService } from 'src/app/shared/his-rcpt.service';
+import { HisIptService } from 'src/app/shared/his-ipt.service';
+import { FileuploadService } from 'src/app/shared/fileupload.service';
+import { OvsitdxService } from 'src/app/shared/ovsitdx.service';
+
+import { ModalAddUserComponent } from './modal-add-user/modal-add-user.component';
+import { ModalAddKpidataComponent } from './modal-add-kpidata/modal-add-kpidata.component';
+import { ModalAddKpiyearComponent } from './modal-add-kpiyear/modal-add-kpiyear.component';
+import { ModalAddKpiComponent } from './modal-add-kpi/modal-add-kpi.component';
+import { ModalDetailKpiComponent } from './modal-detail-kpi/modal-detail-kpi.component';
 import { ModalAddIncothComponent } from './modal-add-incoth/modal-add-incoth.component';
 import { ModalAddRcptComponent } from './modal-add-rcpt/modal-add-rcpt.component';
 import { ModalDetailVisitComponent } from './modal-detail-visit/modal-detail-visit.component';
+
 
 @NgModule({
   imports: [
@@ -42,7 +46,7 @@ import { ModalDetailVisitComponent } from './modal-detail-visit/modal-detail-vis
     ModalDetailKpiComponent,
     ModalAddIncothComponent,
     ModalAddRcptComponent,
-    ModalDetailVisitComponent
+    ModalDetailVisitComponent,
   ],
   exports: [
     ShortTimePipe,
@@ -55,7 +59,7 @@ import { ModalDetailVisitComponent } from './modal-detail-visit/modal-detail-vis
     ModalDetailKpiComponent,
     ModalAddIncothComponent,
     ModalAddRcptComponent,
-    ModalDetailVisitComponent
+    ModalDetailVisitComponent,
   ],
   providers: [
     AuthGuardService,
@@ -66,7 +70,9 @@ import { ModalDetailVisitComponent } from './modal-detail-visit/modal-detail-vis
     KpiYearsService,
     HisIncothService,
     HisRcptService,
-    HisVisitService
+    HisVisitService,
+    FileuploadService,
+    HisIptService
   ]
 })
 export class SharedModule { }

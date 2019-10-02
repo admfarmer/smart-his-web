@@ -18,6 +18,7 @@ import { KpiyearsComponent } from './settings/kpiyears/kpiyears.component';
 import { HisincothComponent } from './hisincoth/hisincoth.component';
 import { HisrcptComponent } from './hisrcpt/hisrcpt.component';
 import { VisitComponent } from './visit/visit.component';
+import { IptuploadComponent } from './iptupload/iptupload.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { VisitComponent } from './visit/visit.component';
     KpiyearsComponent,
     HisincothComponent,
     HisrcptComponent,
-    VisitComponent
+    VisitComponent,
+    IptuploadComponent
   ],
   imports: [
     CommonModule,

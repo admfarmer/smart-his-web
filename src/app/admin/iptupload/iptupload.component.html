@@ -1,0 +1,88 @@
+<form>
+  <section class="form-block">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">บันทึกชาร์ทผู้ป่ายใน</h4>
+        <!-- <p class="card-description">
+          รายงานตัวชีวัด {{kpi_name}} เป้าหมาย {{kpi_scale}} %
+        </p> -->
+        <div class="modal-body">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="hnText" class="required">HN</label>
+                <input type="text" name="hnText" id="hnText" class="form-control" [(ngModel)]="hnText"
+                  placeholder="88888..">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="getIptInfo()">ค้นหาการบริการ</button>
+        </div>
+
+        <!-- <table class="table table-striped"> -->
+        <table class="table table-striped" [mfData]="items" #mf="mfDataTable" [mfRowsOnPage]="10">
+          <thead>
+            <tr>
+              <th style="width: 10%;">AN</th>
+              <th style="width: 25%;">ชื้อ-สกุล</th>
+              <th style="width: 10%;">ตึก</th>
+              <th style="width: 10%;">รหัสโรค</th>
+              <th style="width: 15%;">วันที่เข้านอน</th>
+              <th style="width: 10%;">จำนวนวันนอน</th>
+              <th style="width: 70%;">##</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="!mf.data">
+              <td colspan="5">ไม่พบรายการ</td>
+            </tr>
+
+            <!-- <tr *ngFor="let i of items; let idx = index;"> -->
+            <tr *ngFor="let i of mf.data | grdFilter: {hn: searchText, namepttype:searchText, owner: searchText}">
+              <td>
+                <h4>
+                  {{i.an}}
+                </h4>
+              </td>
+              <td>
+                <h4>{{i.fullname}}</h4>
+              </td>
+              <td>
+                <h4>{{i.ward}}</h4>
+              </td>
+              <td>
+                <h4>{{i.prediag}}</h4>
+              </td>
+              <td>
+                <h4>{{i.rgtdate | date: 'yyyy-MM-dd'}}</h4>
+              </td>
+              <td>
+                <h4>{{i.daycnt}}</h4>
+              </td>
+              <td>
+                <label class="btn btn-sm btn-success" style="margin: 0px;" *ngIf="!i.document_id">
+                  <input type="file" #file accept="image/*,.pdf" class="hidden" multiple
+                    (change)="fileChangeEvent($event)">
+                  <button class="btn btn-sm btn-danger" (click)="upload(i.an)">อัปโหลด</button>
+                </label>
+                <button class="btn btn-link btn-sm" style="min-width: 38px;"
+                  (click)="getFile('bf342b26-b215-4fb2-af96-e535488d5531')" title="เปิดไฟล์"
+                  *ngIf="i.document_id">เปิดไฟล์
+                </button>
+                <span class=" spinner spinner-inline" *ngIf="isUploading">
+                  Uploading...
+                </span>
+                <span *ngIf="isUploading">
+                  Uploading...
+                </span>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</form>
