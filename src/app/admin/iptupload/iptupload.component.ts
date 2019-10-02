@@ -114,7 +114,7 @@ export class IptuploadComponent {
     this.files = [];
     this.loadingFiles = true;
     let result: any = await this.uploadingService.getFiles(v.an);
-    if (result.rows) {
+    if (result.rows[0]) {
       _document_id = result.rows[0].document_id,
         _file_name = result.rows[0].file_name
     } else {

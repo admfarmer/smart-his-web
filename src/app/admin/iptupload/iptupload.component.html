@@ -74,9 +74,8 @@
                     (change)="fileChangeEvent($event)">
                   <button class="btn btn-sm btn-danger" (click)="upload(i.an)">อัปโหลด</button>
                 </label>
-                <button class="btn btn-link btn-sm" style="min-width: 38px;"
-                  (click)="getFile('bf342b26-b215-4fb2-af96-e535488d5531')" title="เปิดไฟล์"
-                  *ngIf="i.document_id">เปิดไฟล์
+                <button class="btn btn-link btn-sm" style="min-width: 38px;" (click)="getFile(i.document_id)"
+                  title="เปิดไฟล์" *ngIf="i.document_id">เปิดไฟล์
                 </button>
                 <span class=" spinner spinner-inline" *ngIf="isUploading">
                   Uploading...
