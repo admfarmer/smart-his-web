@@ -97,11 +97,16 @@ export class IptuploadComponent {
   async getFilesList(v: any) {
     let _document_id: any;
     let _file_name: any;
-
+    let _no: any;
     this.files = [];
     this.loadingFiles = true;
     let result: any = await this.uploadingService.getFiles(v.an);
-    if (result.rows) {
+    if (result.rows[0]) {
+      _no = 'NO';
+    } else {
+      _no = 'YES'
+    }
+    if (_no == 'NO') {
       _document_id = result.rows[0].document_id,
         _file_name = result.rows[0].file_name
     } else {
