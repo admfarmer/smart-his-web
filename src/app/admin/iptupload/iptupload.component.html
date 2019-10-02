@@ -40,7 +40,7 @@
             </tr>
 
             <!-- <tr *ngFor="let i of items; let idx = index;"> -->
-            <tr *ngFor="let i of mf.data | grdFilter: {hn: searchText, namepttype:searchText, owner: searchText}">
+            <tr *ngFor="let i of mf.data">
               <td>
                 <h4>
                   {{i.an}}
