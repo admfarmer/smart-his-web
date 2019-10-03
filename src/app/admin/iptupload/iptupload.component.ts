@@ -114,9 +114,9 @@ export class IptuploadComponent {
     this.files = [];
     this.loadingFiles = true;
     let result: any = await this.uploadingService.getFiles(v.an);
-    if (result.rows[0]) {
-      _document_id = result.rows[0].document_id,
-        _file_name = result.rows[0].file_name
+    if (result.rows) {
+      _document_id = result.rows.document_id,
+        _file_name = result.rows.file_name
     } else {
       _document_id = null;
       _file_name = null;
@@ -147,16 +147,6 @@ export class IptuploadComponent {
     this.alertService.confirm('คุณต้องการลบไฟล์นี้ ใช่หรือไม่?')
       .then(() => {
         this.uploadingService.removeFile(documentId)
-          .then((result: any) => {
-            if (result.ok) {
-              this.files.splice(idx, 1);
-            } else {
-              this.alertService.error(JSON.stringify(result.error));
-            }
-          })
-          .catch(() => {
-            this.alertService.serverError();
-          });
       })
       .catch(() => {
         // cancel

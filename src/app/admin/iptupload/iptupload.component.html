@@ -47,7 +47,7 @@
             </tr>
 
             <!-- <tr *ngFor="let i of items; let idx = index;"> -->
-            <tr *ngFor="let i of mf.data">
+            <tr *ngFor="let i of mf.data ; let idx = index;">
               <td>
                 <h4>
                   {{i.an}}
@@ -77,6 +77,11 @@
                 <button class="btn btn-link btn-sm" style="min-width: 38px;" (click)="getFile(i.document_id)"
                   title="เปิดไฟล์" *ngIf="i.document_id">เปิดไฟล์
                 </button>
+                <button *ngIf="i.document_id || userType === 'ADMIN'" class="btn btn-link btn-sm"
+                  style="min-width: 38px;" (click)="removeFile(i.document_id, idx)" title="ลบไฟล์">ลบไฟล์
+
+                </button>
+
                 <span class=" spinner spinner-inline" *ngIf="isUploading">
                   Uploading...
                 </span>
