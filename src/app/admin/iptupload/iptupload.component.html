@@ -74,14 +74,15 @@
                     (change)="fileChangeEvent($event)">
                   <button class="btn btn-sm btn-danger" (click)="upload(i.an)">อัปโหลด</button>
                 </label>
-                <button class="btn btn-link btn-sm" style="min-width: 38px;" (click)="getFile(i.document_id)"
-                  title="เปิดไฟล์" *ngIf="i.document_id">เปิดไฟล์
-                </button>
-                <button *ngIf="i.document_id || userType === 'ADMIN'" class="btn btn-link btn-sm"
-                  style="min-width: 38px;" (click)="removeFile(i.document_id, idx)" title="ลบไฟล์">ลบไฟล์
-
-                </button>
-
+                <label class="btn btn-sm btn-info" style="margin: 0px;" *ngIf="i.document_id">
+                  <button class="btn btn-sm btn-success" style="min-width: 38px;" (click)="getFile(i.document_id)"
+                    title="เปิดไฟล์" *ngIf="i.document_id">เปิดไฟล์
+                  </button>
+                  <button class="btn btn-sm btn-danger" style="min-width: 38px;"
+                    *ngIf="i.document_id || userType === 'ADMIN'" (click)="removeFile(i.document_id, idx)"
+                    title="ลบไฟล์">ลบไฟล์
+                  </button>
+                </label>
                 <span class=" spinner spinner-inline" *ngIf="isUploading">
                   Uploading...
                 </span>

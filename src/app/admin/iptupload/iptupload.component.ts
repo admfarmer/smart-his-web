@@ -147,6 +147,7 @@ export class IptuploadComponent {
     this.alertService.confirm('คุณต้องการลบไฟล์นี้ ใช่หรือไม่?')
       .then(() => {
         this.uploadingService.removeFile(documentId)
+        this.getIptInfo();
       })
       .catch(() => {
         // cancel
