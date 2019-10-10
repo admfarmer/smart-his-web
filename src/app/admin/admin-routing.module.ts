@@ -11,6 +11,7 @@ import { HisincothComponent } from './hisincoth/hisincoth.component';
 import { HisrcptComponent } from './hisrcpt/hisrcpt.component';
 import { VisitComponent } from './visit/visit.component';
 import { IptuploadComponent } from './iptupload/iptupload.component';
+import { HisancComponent } from './hisanc/hisanc.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'rcpt', component: HisrcptComponent },
       { path: 'visit', component: VisitComponent },
       { path: 'iptupload', component: IptuploadComponent },
+      { path: 'anc', component: HisancComponent },
     ]
   },
 

@@ -57,6 +57,13 @@
             <i class="mdi mdi-animation-play menu-icon"></i>
           </a>
         </li>
+        <li class="nav-item" routerLinkActive="active"
+          *ngIf="userType === 'ADMIN'  || userType === 'MEMBER'  || userType === 'REPORT'">
+          <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/anc">
+            <span class="menu-title">ประวัติ ANC</span>
+            <i class="mdi mdi-animation-play menu-icon"></i>
+          </a>
+        </li>
         <li class="nav-item" routerLinkActive="active" *ngIf="userType === 'ADMIN'  || userType === 'MEMBER'">
           <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/iptupload">
             <span class="menu-title">บันทึกชาร์ทผู้ป่ายใน</span>

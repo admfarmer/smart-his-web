@@ -5,6 +5,7 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { LayoutComponent } from './layout/layout.component';
 import { DataTableModule } from "angular-6-datatable";
 import { GrdFilterPipe } from '../shared/grd-filter.pipe';
+import { ExportAsModule } from 'ngx-export-as';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -19,6 +20,7 @@ import { HisincothComponent } from './hisincoth/hisincoth.component';
 import { HisrcptComponent } from './hisrcpt/hisrcpt.component';
 import { VisitComponent } from './visit/visit.component';
 import { IptuploadComponent } from './iptupload/iptupload.component';
+import { HisancComponent } from './hisanc/hisanc.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { IptuploadComponent } from './iptupload/iptupload.component';
     HisincothComponent,
     HisrcptComponent,
     VisitComponent,
-    IptuploadComponent
+    IptuploadComponent,
+    HisancComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +45,8 @@ import { IptuploadComponent } from './iptupload/iptupload.component';
     CountdownModule,
     AdminRoutingModule,
     SharedModule,
-    DataTableModule
+    DataTableModule,
+    ExportAsModule
   ]
 })
 export class AdminModule { }

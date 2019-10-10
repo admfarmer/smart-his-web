@@ -7,6 +7,7 @@ import { ThaiDatePipe } from './thai-date.pipe';
 import { ToggleFullscreenDirective } from './toggle-fullscreen.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ExportAsModule } from 'ngx-export-as';
 
 import { HisVisitService } from 'src/app/shared/his-visit.service';
 import { KpiService } from 'src/app/shared/kpi.service';
@@ -32,7 +33,8 @@ import { ModalDetailVisitComponent } from './modal-detail-visit/modal-detail-vis
   imports: [
     CommonModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ExportAsModule
 
   ],
   declarations: [

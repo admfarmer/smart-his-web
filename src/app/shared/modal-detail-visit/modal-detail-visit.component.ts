@@ -3,6 +3,8 @@ import { NgbModalRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AlertService } from '../alert.service';
 import { HisVisitService } from '../his-visit.service';
 import * as moment from 'moment'
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 @Component({
   selector: 'app-modal-detail-visit',
@@ -25,11 +27,28 @@ export class ModalDetailVisitComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private alertService: AlertService,
-    private hisVisitService: HisVisitService
+    private hisVisitService: HisVisitService,
 
   ) { }
 
   ngOnInit() {
+  }
+
+  downloadPDF(item) {
+    // console.log(item);
+    let x: any = [];
+    item.forEach(v => {
+      let rows = [v.lab_code, v.lab_name, v.lab_result + ' ' + v.standard_result, v.date_serv + ' ' + v.time_serv];
+      x.push(rows)
+    });
+
+    // console.log(x);
+    let col_profile = ["hn", "cid", "name", "type"];
+    let columns = ["lab_name", "lab_label", "lab_result", "date"];
+
+    let doc = new jsPDF('portrait', 'px', 'a4');
+    doc.autoTable(columns, x); // typescript compile time error
+    doc.save('table.pdf');
   }
 
   async open(info: any = null) {
