@@ -18,6 +18,11 @@ export class HisIptService {
     };
   }
 
+  async getIptSelect(limit: number, offset: number) {
+    const _url = `${this.apiUrl}/ipt/select?limit=${limit}&offset=${offset}`;
+    return this.httpClient.get(_url, this.httpOptions).toPromise();
+  }
+
   async getIptInfo(hn: any) {
     const _url = `${this.apiUrl}/ipt/info/${hn}`;
     return this.httpClient.get(_url, this.httpOptions).toPromise();

@@ -21,6 +21,7 @@ import { HisrcptComponent } from './hisrcpt/hisrcpt.component';
 import { VisitComponent } from './visit/visit.component';
 import { IptuploadComponent } from './iptupload/iptupload.component';
 import { HisancComponent } from './hisanc/hisanc.component';
+import { IptreportComponent } from './iptreport/iptreport.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HisancComponent } from './hisanc/hisanc.component';
     HisrcptComponent,
     VisitComponent,
     IptuploadComponent,
-    HisancComponent
+    HisancComponent,
+    IptreportComponent
   ],
   imports: [
     CommonModule,

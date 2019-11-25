@@ -1,0 +1,76 @@
+<form>
+  <section class="form-block">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">รายงานชาร์ทผู้ป่ายใน</h4>
+        <table class="table table-striped" [mfData]="items" #mf="mfDataTable" [mfRowsOnPage]="10">
+          <thead>
+            <tr>
+              <th style="width: 10%;">AN</th>
+              <th style="width: 20%;">ชื้อ-สกุล</th>
+              <th style="width: 12%;">ตึก</th>
+              <th style="width: 10%;">รหัสโรค</th>
+              <th style="width: 15%;">แพทย์</th>
+              <th style="width: 15%;">วันที่เข้านอน</th>
+              <th style="width: 8%;">วันนอน</th>
+              <th style="width: 10%;">สถานสรุปชาร์ท</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="!mf.data">
+              <td colspan="5">ไม่พบรายการ</td>
+            </tr>
+
+            <!-- <tr *ngFor="let i of items; let idx = index;"> -->
+            <tr *ngFor="let i of mf.data ; let idx = index;">
+              <td>
+                <h4>
+                  {{i.an}}
+                </h4>
+              </td>
+              <td>
+                <h4>{{i.fullname}}</h4>
+              </td>
+              <td>
+                <h4>{{i.ward}}</h4>
+              </td>
+              <td>
+                <h4>{{i.prediag}}</h4>
+              </td>
+              <td>
+                <h4>{{i.doctorname}}</h4>
+              </td>
+              <td>
+                <h4>{{i.rgtdate | date: 'yyyy-MM-dd'}}</h4>
+              </td>
+              <td>
+                <h4>{{i.daycnt}}</h4>
+              </td>
+              <td>
+                <label class="btn btn-sm btn-info " style="margin: 0px;" *ngIf="!i.document_id">
+                  <span class="mdi mdi-close-box"></span> </label>
+                <label class="btn btn-sm btn-success" style="margin: 0px;" *ngIf="i.document_id">
+                  <span class="mdi mdi-checkbox-marked"></span> </label>
+                <span class=" spinner spinner-inline" *ngIf="isUploading">
+                  Uploading...
+                </span>
+                <span *ngIf="isUploading">
+                  Uploading...
+                </span>
+
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="6">
+                <mfBootstrapPaginator (click)="onPageChange($event)" [rowsOnPageSet]="[5,10,25]">
+                </mfBootstrapPaginator>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </section>
+</form>
