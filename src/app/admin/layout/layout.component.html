@@ -127,6 +127,11 @@
                 </a>
               </li>
               <li class="nav-item" routerLinkActive="active" *ngIf="userType === 'ADMIN'">
+                <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/kpistg">
+                  <span class="menu-title">บันทึกข้อมูลหมวดตัวชี้วัด</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="active" *ngIf="userType === 'ADMIN'">
                 <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/kpis">
                   <span class="menu-title">บันทึกข้อมูลตัวชี้วัด</span>
                 </a>

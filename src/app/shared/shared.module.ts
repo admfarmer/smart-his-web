@@ -27,6 +27,7 @@ import { ModalDetailKpiComponent } from './modal-detail-kpi/modal-detail-kpi.com
 import { ModalAddIncothComponent } from './modal-add-incoth/modal-add-incoth.component';
 import { ModalAddRcptComponent } from './modal-add-rcpt/modal-add-rcpt.component';
 import { ModalDetailVisitComponent } from './modal-detail-visit/modal-detail-visit.component';
+import { ModalAddKpistgComponent } from './modal-add-kpistg/modal-add-kpistg.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { ModalDetailVisitComponent } from './modal-detail-visit/modal-detail-vis
     ModalAddIncothComponent,
     ModalAddRcptComponent,
     ModalDetailVisitComponent,
+    ModalAddKpistgComponent
   ],
   exports: [
     ShortTimePipe,
@@ -62,6 +64,7 @@ import { ModalDetailVisitComponent } from './modal-detail-visit/modal-detail-vis
     ModalAddIncothComponent,
     ModalAddRcptComponent,
     ModalDetailVisitComponent,
+    ModalAddKpistgComponent
   ],
   providers: [
     AuthGuardService,

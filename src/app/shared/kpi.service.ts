@@ -22,6 +22,21 @@ export class KpiService {
     const _url = `${this.apiUrl}/kpi/stg/info`;
     return this.httpClient.get(_url, this.httpOptions).toPromise();
   }
+  async getStgSelect() {
+    const _url = `${this.apiUrl}/kpi/stg/select`;
+    return this.httpClient.get(_url, this.httpOptions).toPromise();
+  }
+
+  async saveStg(info: object) {
+    const _url = `${this.apiUrl}/kpi/stg/insert`;
+    return this.httpClient.post(_url, info, this.httpOptions).toPromise();
+  }
+
+  async updateStg(info: object, stg_id: any) {
+    const _url = `${this.apiUrl}/kpi/stg/update/${stg_id}`;
+    return this.httpClient.put(_url, info, this.httpOptions).toPromise();
+  }
+
 
   async getKpiDetail(kpi_id: any) {
     const _url = `${this.apiUrl}/kpi/kpidetail/${kpi_id}`;

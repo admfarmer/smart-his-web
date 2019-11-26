@@ -13,6 +13,7 @@ import { VisitComponent } from './visit/visit.component';
 import { IptuploadComponent } from './iptupload/iptupload.component';
 import { HisancComponent } from './hisanc/hisanc.component';
 import { IptreportComponent } from './iptreport/iptreport.component';
+import { KpistgComponent } from './settings/kpistg/kpistg.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
       { path: 'iptupload', component: IptuploadComponent },
       { path: 'anc', component: HisancComponent },
       { path: 'iptreport', component: IptreportComponent },
+      { path: 'kpistg', component: KpistgComponent },
     ]
   },
 

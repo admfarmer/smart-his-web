@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertService } from 'src/app/shared/alert.service';
 import { KpiService } from 'src/app/shared/kpi.service';
-import { ModalAddKpiComponent } from 'src/app/shared/modal-add-kpi/modal-add-kpi.component';
+import { ModalAddKpistgComponent } from 'src/app/shared/modal-add-kpistg/modal-add-kpistg.component';
 
 @Component({
-  selector: 'app-kpi',
-  templateUrl: './kpi.component.html',
-  styles: []
+  selector: 'app-kpistg',
+  templateUrl: './kpistg.component.html',
+  styleUrls: []
 })
-export class KpiComponent implements OnInit {
-  @ViewChild('mdlKpi') private mdlKpi: ModalAddKpiComponent;
+export class KpistgComponent implements OnInit {
+  @ViewChild('mdlKpiStg') private mdlKpiStg: ModalAddKpistgComponent;
 
   isCollapsed = true;
   fullname: string;
@@ -19,11 +19,10 @@ export class KpiComponent implements OnInit {
   items: any = [];
   info: any = {};
   searchText: string;
-  itemsStg: any = [];
 
   constructor(
     private alertService: AlertService,
-    private kpiService: KpiService,
+    private kpiService: KpiService
 
   ) {
     this.fullname = sessionStorage.getItem('fullname');
@@ -33,21 +32,21 @@ export class KpiComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getKpiInfo();
     this.getStgInfo();
   }
 
   openEdit(item: any) {
     console.log(item);
-    this.mdlKpi.open(item);
+    this.mdlKpiStg.open(item);
   }
 
   openRegister() {
     console.log('ADD');
-    this.mdlKpi.open();
+    this.mdlKpiStg.open();
   }
+
   onSave(event: any) {
-    this.getKpiInfo();
+    this.getStgInfo();
     this.alertService.success();
   }
 
@@ -55,26 +54,11 @@ export class KpiComponent implements OnInit {
     console.log(item);
   }
 
-  async getKpiInfo() {
-    try {
-      const rs: any = await this.kpiService.getKpiInfo();
-      if (rs.info) {
-        this.items = rs.info;
-        // console.log(this.items);
-      } else {
-        this.alertService.error('เกิดข้อผิดพลาด');
-      }
-    } catch (error) {
-      console.log(error);
-      this.alertService.error();
-    }
-  }
-
   async getStgInfo() {
     try {
-      const rs: any = await this.kpiService.getStgInfo();
+      const rs: any = await this.kpiService.getStgSelect();
       if (rs.info) {
-        this.itemsStg = rs.info;
+        this.items = rs.info;
         // console.log(this.items);
       } else {
         this.alertService.error('เกิดข้อผิดพลาด');
@@ -84,6 +68,5 @@ export class KpiComponent implements OnInit {
       // this.alertService.error();
     }
   }
-
 
 }
