@@ -15,6 +15,7 @@ export class IptreportComponent implements OnInit {
 
   files: Array<any> = [];
   loadingFiles = false;
+  isUploading = false;
 
   total = 0;
   pageSize = 20;
