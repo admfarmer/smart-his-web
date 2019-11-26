@@ -4,8 +4,23 @@
     <!-- <p class="card-description">
       รายงานตัวชีวัด
     </p> -->
-    ค้นหา :
-    <input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="kpi_stg_id" class="required">หมวดตัวชี้วัด</label>
+        <select class="form-control" name="kpi_stg_id" id="kpi_stg_id" [(ngModel)]="searchText">
+          <option *ngFor="let item of itemsStg" [value]="item.stg_id">{{item.stg_name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        ค้นหา :
+        <input class="form-control" [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+      </div>
+    </div>
+
+
+
 
     <table class="table table-striped" [mfData]="items" #mf="mfDataTable" [mfRowsOnPage]="10">
       <thead>
@@ -17,7 +32,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of mf.data | grdFilter: {kpi_name: searchText, kpi_scale:searchText, owner: searchText}">
+        <tr
+          *ngFor="let item of mf.data | grdFilter: {kpi_name: searchText, kpi_scale:searchText, owner: searchText, kpi_stg_id: searchText}">
           <td>
             <h4>{{item.kpi_name}}</h4>
           </td>

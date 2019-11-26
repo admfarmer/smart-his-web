@@ -3,6 +3,7 @@ import { AlertService } from 'src/app/shared/alert.service';
 import { KpiDatasService } from 'src/app/shared/kpidatas.service';
 import { ModalAddKpidataComponent } from 'src/app/shared/modal-add-kpidata/modal-add-kpidata.component';
 import { ModalDetailKpiComponent } from 'src/app/shared/modal-detail-kpi/modal-detail-kpi.component';
+import { KpiService } from 'src/app/shared/kpi.service';
 
 @Component({
   selector: 'app-kpidata',
@@ -26,16 +27,20 @@ export class KpidataComponent implements OnInit {
   status: any;
   user_works: any;
 
+  itemsStg: any = [];
+
 
 
   constructor(
     private alertService: AlertService,
     private kpiDatasService: KpiDatasService,
+    private kpiService: KpiService,
 
   ) { }
 
   ngOnInit() {
     this.getKpiInfo();
+    this.getStgInfo();
   }
 
   openRegister(item: any) {
@@ -113,6 +118,21 @@ export class KpidataComponent implements OnInit {
     } catch (error) {
       console.log(error);
       this.alertService.error();
+    }
+  }
+
+  async getStgInfo() {
+    try {
+      const rs: any = await this.kpiService.getStgInfo();
+      if (rs.info) {
+        this.itemsStg = rs.info;
+        // console.log(this.items);
+      } else {
+        this.alertService.error('เกิดข้อผิดพลาด');
+      }
+    } catch (error) {
+      console.log(error);
+      // this.alertService.error();
     }
   }
 

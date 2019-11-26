@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertService } from 'src/app/shared/alert.service';
 import { HisIptService } from 'src/app/shared/his-ipt.service';
 import { FileuploadService } from '../../shared/fileupload.service';
-import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 
 @Component({
   selector: 'app-iptreport',
@@ -34,14 +33,6 @@ export class IptreportComponent implements OnInit {
   }
 
   onPageChange(event: any) {
-
-    // const _currentPage = +event;
-    // let _offset = 0;
-    // _offset = (_currentPage - 1) * this.pageSize;
-
-    // this.offset = _offset;
-
-    // let _offset = 1;
     this.offset = this.offset + this.pageSize;
     this.getIptSelect();
   }
