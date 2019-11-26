@@ -1,17 +1,17 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { NgbModalRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AlertService } from '../alert.service';
-import { HisVisitService } from '../his-visit.service';
+import { HisAncService } from '../his-anc.service';
 import * as moment from 'moment'
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
 @Component({
-  selector: 'app-modal-detail-visit',
-  templateUrl: './modal-detail-visit.component.html',
-  styles: []
+  selector: 'app-modal-detail-anc',
+  templateUrl: './modal-detail-anc.component.html',
+  styleUrls: []
 })
-export class ModalDetailVisitComponent implements OnInit {
+export class ModalDetailAncComponent implements OnInit {
 
   @Output('onSave') onSave: EventEmitter<any> = new EventEmitter<any>();
 
@@ -27,12 +27,13 @@ export class ModalDetailVisitComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private alertService: AlertService,
-    private hisVisitService: HisVisitService,
+    private hisVisitService: HisAncService,
 
   ) { }
 
   ngOnInit() {
-    console.log('visit');
+    console.log('anc');
+
   }
 
   downloadPDF(item) {

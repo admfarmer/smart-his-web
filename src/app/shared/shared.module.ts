@@ -18,6 +18,7 @@ import { HisRcptService } from 'src/app/shared/his-rcpt.service';
 import { HisIptService } from 'src/app/shared/his-ipt.service';
 import { FileuploadService } from 'src/app/shared/fileupload.service';
 import { OvsitdxService } from 'src/app/shared/ovsitdx.service';
+import { HisAncService } from 'src/app/shared/his-anc.service';
 
 import { ModalAddUserComponent } from './modal-add-user/modal-add-user.component';
 import { ModalAddKpidataComponent } from './modal-add-kpidata/modal-add-kpidata.component';
@@ -28,6 +29,7 @@ import { ModalAddIncothComponent } from './modal-add-incoth/modal-add-incoth.com
 import { ModalAddRcptComponent } from './modal-add-rcpt/modal-add-rcpt.component';
 import { ModalDetailVisitComponent } from './modal-detail-visit/modal-detail-visit.component';
 import { ModalAddKpistgComponent } from './modal-add-kpistg/modal-add-kpistg.component';
+import { ModalDetailAncComponent } from './modal-detail-anc/modal-detail-anc.component';
 
 
 @NgModule({
@@ -50,7 +52,8 @@ import { ModalAddKpistgComponent } from './modal-add-kpistg/modal-add-kpistg.com
     ModalAddIncothComponent,
     ModalAddRcptComponent,
     ModalDetailVisitComponent,
-    ModalAddKpistgComponent
+    ModalAddKpistgComponent,
+    ModalDetailAncComponent
   ],
   exports: [
     ShortTimePipe,
@@ -64,7 +67,8 @@ import { ModalAddKpistgComponent } from './modal-add-kpistg/modal-add-kpistg.com
     ModalAddIncothComponent,
     ModalAddRcptComponent,
     ModalDetailVisitComponent,
-    ModalAddKpistgComponent
+    ModalAddKpistgComponent,
+    ModalDetailAncComponent
   ],
   providers: [
     AuthGuardService,
@@ -77,7 +81,8 @@ import { ModalAddKpistgComponent } from './modal-add-kpistg/modal-add-kpistg.com
     HisRcptService,
     HisVisitService,
     FileuploadService,
-    HisIptService
+    HisIptService,
+    HisAncService
   ]
 })
 export class SharedModule { }

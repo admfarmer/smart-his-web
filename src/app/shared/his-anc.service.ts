@@ -4,7 +4,7 @@ import { HttpResponse, HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class HisVisitService {
+export class HisAncService {
   token: any;
   httpOptions: any;
 
@@ -18,13 +18,13 @@ export class HisVisitService {
     };
   }
   async getVisit(info: any) {
-    const _url = `${this.apiUrl}/services/ovstInfo`;
+    const _url = `${this.apiUrl}/ancview/ovstInfo`;
     return this.httpClient.post(_url, info, this.httpOptions).toPromise();
   }
   async getService(hn: any, dateServ: any) {
-    console.log('visit');
+    console.log('anc');
 
-    const _url = `${this.apiUrl}/services/view/${hn}/${dateServ}`;
+    const _url = `${this.apiUrl}/ancview/view/${hn}/${dateServ}`;
     return this.httpClient.get(_url, this.httpOptions).toPromise();
   }
 

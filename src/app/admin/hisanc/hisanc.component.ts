@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertService } from 'src/app/shared/alert.service';
 import { AncviewService } from 'src/app/shared/ancview.service';
-import { ModalDetailVisitComponent } from 'src/app/shared/modal-detail-visit/modal-detail-visit.component';
+import { ModalDetailAncComponent } from 'src/app/shared/modal-detail-anc/modal-detail-anc.component';
 
 @Component({
   selector: 'app-hisanc',
@@ -9,7 +9,7 @@ import { ModalDetailVisitComponent } from 'src/app/shared/modal-detail-visit/mod
   styles: []
 })
 export class HisancComponent implements OnInit {
-  @ViewChild('mdlVisitDetail') private mdlVisitDetail: ModalDetailVisitComponent;
+  @ViewChild('mdlVisitAnc') private mdlVisitAnc: ModalDetailAncComponent;
 
   items: any = [];
   itemService: any = [];
@@ -29,7 +29,7 @@ export class HisancComponent implements OnInit {
 
   openEdit(item: any) {
     console.log(item);
-    this.mdlVisitDetail.open(item);
+    this.mdlVisitAnc.open(item);
   }
 
   onSave(event: any) {
