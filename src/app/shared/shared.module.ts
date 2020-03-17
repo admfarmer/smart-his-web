@@ -30,6 +30,7 @@ import { ModalAddRcptComponent } from './modal-add-rcpt/modal-add-rcpt.component
 import { ModalDetailVisitComponent } from './modal-detail-visit/modal-detail-visit.component';
 import { ModalAddKpistgComponent } from './modal-add-kpistg/modal-add-kpistg.component';
 import { ModalDetailAncComponent } from './modal-detail-anc/modal-detail-anc.component';
+import { ModalEditDebtorComponent } from './modal-edit-debtor/modal-edit-debtor.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ModalDetailAncComponent } from './modal-detail-anc/modal-detail-anc.com
     ModalAddRcptComponent,
     ModalDetailVisitComponent,
     ModalAddKpistgComponent,
-    ModalDetailAncComponent
+    ModalDetailAncComponent,
+    ModalEditDebtorComponent
   ],
   exports: [
     ShortTimePipe,
@@ -68,7 +70,8 @@ import { ModalDetailAncComponent } from './modal-detail-anc/modal-detail-anc.com
     ModalAddRcptComponent,
     ModalDetailVisitComponent,
     ModalAddKpistgComponent,
-    ModalDetailAncComponent
+    ModalDetailAncComponent,
+    ModalEditDebtorComponent
   ],
   providers: [
     AuthGuardService,

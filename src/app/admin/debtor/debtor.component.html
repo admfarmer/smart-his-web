@@ -1,29 +1,21 @@
 <div class="card">
   <div class="card-body">
-    <h4 class="card-title">บันทึกข้อมูลตัวชี้วัด</h4>
+    <h4 class="card-title">บันทึกข้อมูลลูกหนี้ พรบ.รถ </h4>
     <!-- <p class="card-description">
       รายงานตัวชีวัด
     </p> -->
     <div class="row" *ngIf="userType === 'ADMIN'">
       <div class="col-md-12">
-        <button (click)="openRegister()" class="float-right btn-lg btn btn-sm btn-gradient-success">
+        <button (click)="openDebtor()" class="float-right btn-lg btn btn-sm btn-gradient-success">
           <i class="mdi mdi-plus"></i>
-          เพิ่มตัวชี้วัด
+          เพิ่มลูกหนี้
         </button>
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="kpi_stg_id" class="required">หมวดตัวชี้วัด</label>
-        <select class="form-control" name="kpi_stg_id" id="kpi_stg_id" [(ngModel)]="searchText">
-          <option *ngFor="let item of itemsStg" [value]="item.stg_id">{{item.stg_name}}</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        ค้นหา :
+        ค้นหา ชื่อ-สกุล HN :
         <input class="form-control" [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
       </div>
     </div>
@@ -31,28 +23,39 @@
     <table class="table table-striped" [mfData]="items" #mf="mfDataTable">
       <thead>
         <tr>
-          <th>ตัวชี้วัด</th>
-          <th style="width: 100px;">เป้าหมาย</th>
-          <th style="width: 100px;">ผู้รับผิดชอบ</th>
+          <th>hn</th>
+          <th>fullname</th>
+          <th>namepttype</th>
+          <th>date_serv</th>
+          <th>diagnosis</th>
+          <th>total</th>
           <th class="text-center">สถานะ</th>
           <th style="width: 50px;">##</th>
         </tr>
       </thead>
       <tbody>
-        <tr
-          *ngFor="let item of mf.data | grdFilter: {kpi_name: searchText, kpi_scale:searchText, owner: searchText, kpi_stg_id: searchText}">
+        <tr *ngFor="let item of mf.data | grdFilter: {fullname: searchText, hn:searchText}">
           <td>
-            <h4>{{item.kpi_name}}</h4>
+            <h4>{{item.hn}}</h4>
           </td>
           <td>
-            <h4>{{item.kpi_scale}}</h4>
+            <h4>{{item.fullname}}</h4>
           </td>
           <td>
-            <h4>{{item.owner}}</h4>
+            <h4>{{item.namepttype}}</h4>
+          </td>
+          <td>
+            <h4>{{item.date_serv | date}}</h4>
+          </td>
+          <td>
+            <h4>{{item.diagnosis}}</h4>
+          </td>
+          <td>
+            <h4>{{item.total}}</h4>
           </td>
           <td class="text-center">
-            <i class="mdi mdi-check text-success" *ngIf="item.kpi_status === '1'"></i>
-            <i class="mdi mdi-close text-danger" *ngIf="item.kpi_status === '0'"></i>
+            <i class="mdi mdi-check text-success" *ngIf="item.status === 'ACQUIT'"></i>
+            <i class="mdi mdi-close text-danger" *ngIf="item.status === 'DEBTOR'"></i>
           </td>
           <td>
             <div class="btn-group">
@@ -69,4 +72,4 @@
     </table>
   </div>
 </div>
-<app-modal-add-kpi #mdlKpi (onSave)="onSave($event)"> </app-modal-add-kpi>
+<app-modal-edit-debtor #mdlDebtorIncoth (onSave)="onSave($event)"></app-modal-edit-debtor>

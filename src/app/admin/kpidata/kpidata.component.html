@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <table class="table table-striped" [mfData]="items" #mf="mfDataTable" [mfRowsOnPage]="10">
+    <table class="table table-striped" [mfData]="items" #mf="mfDataTable">
       <thead>
         <tr>
           <th>ตัวชี้วัด</th>
@@ -51,14 +51,6 @@
           </td>
         </tr>
       </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="6">
-            <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
-            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-          </td>
-        </tr>
-      </tfoot>
     </table>
   </div>
 </div>

@@ -1,0 +1,43 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">ข้อมูลค่าใช้จ่าย</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="fullname" class="required">
+            fullname :
+          </label>
+          <input type="text" name="fullname" id="fullname" class="form-control" [(ngModel)]="fullname">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="date_serv" class="required">
+            date_serv :
+          </label>
+          <input type="text" name="date_serv" id="date_serv" class="form-control" [(ngModel)]="date_serv">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="total" class="required">
+            total
+          </label>
+          <input type="text" name="total" id="total" class="form-control" [(ngModel)]="total">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="accept" class="required">
+            accept
+          </label>
+          <input type="text" name="accept" id="accept" class="form-control" [(ngModel)]="accept">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="save()">บันทึก</button>
+    <button type="button" class="btn btn-outline-danger" (click)="dismiss()">ยกเลิก</button>
+  </div>
+</ng-template>

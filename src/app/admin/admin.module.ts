@@ -23,6 +23,7 @@ import { IptuploadComponent } from './iptupload/iptupload.component';
 import { HisancComponent } from './hisanc/hisanc.component';
 import { IptreportComponent } from './iptreport/iptreport.component';
 import { KpistgComponent } from './settings/kpistg/kpistg.component';
+import { DebtorComponent } from './debtor/debtor.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { KpistgComponent } from './settings/kpistg/kpistg.component';
     IptuploadComponent,
     HisancComponent,
     IptreportComponent,
-    KpistgComponent
+    KpistgComponent,
+    DebtorComponent
   ],
   imports: [
     CommonModule,

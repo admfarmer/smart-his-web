@@ -14,6 +14,7 @@ import { IptuploadComponent } from './iptupload/iptupload.component';
 import { HisancComponent } from './hisanc/hisanc.component';
 import { IptreportComponent } from './iptreport/iptreport.component';
 import { KpistgComponent } from './settings/kpistg/kpistg.component';
+import { DebtorComponent } from './debtor/debtor.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
       { path: 'anc', component: HisancComponent },
       { path: 'iptreport', component: IptreportComponent },
       { path: 'kpistg', component: KpistgComponent },
+      { path: 'debtor', component: DebtorComponent },
     ]
   },
 
