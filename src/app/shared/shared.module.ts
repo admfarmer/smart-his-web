@@ -31,6 +31,7 @@ import { ModalDetailVisitComponent } from './modal-detail-visit/modal-detail-vis
 import { ModalAddKpistgComponent } from './modal-add-kpistg/modal-add-kpistg.component';
 import { ModalDetailAncComponent } from './modal-detail-anc/modal-detail-anc.component';
 import { ModalEditDebtorComponent } from './modal-edit-debtor/modal-edit-debtor.component';
+import { ModalSsoVisitComponent } from './modal-sso-visit/modal-sso-visit.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { ModalEditDebtorComponent } from './modal-edit-debtor/modal-edit-debtor.
     ModalDetailVisitComponent,
     ModalAddKpistgComponent,
     ModalDetailAncComponent,
-    ModalEditDebtorComponent
+    ModalEditDebtorComponent,
+    ModalSsoVisitComponent
   ],
   exports: [
     ShortTimePipe,
@@ -71,7 +73,8 @@ import { ModalEditDebtorComponent } from './modal-edit-debtor/modal-edit-debtor.
     ModalDetailVisitComponent,
     ModalAddKpistgComponent,
     ModalDetailAncComponent,
-    ModalEditDebtorComponent
+    ModalEditDebtorComponent,
+    ModalSsoVisitComponent
   ],
   providers: [
     AuthGuardService,

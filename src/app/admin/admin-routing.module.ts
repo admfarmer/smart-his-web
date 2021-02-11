@@ -15,6 +15,7 @@ import { HisancComponent } from './hisanc/hisanc.component';
 import { IptreportComponent } from './iptreport/iptreport.component';
 import { KpistgComponent } from './settings/kpistg/kpistg.component';
 import { DebtorComponent } from './debtor/debtor.component';
+import { SsoVisitComponent } from './sso-visit/sso-visit.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
       { path: 'iptreport', component: IptreportComponent },
       { path: 'kpistg', component: KpistgComponent },
       { path: 'debtor', component: DebtorComponent },
+      { path: 'ssovisit', component: SsoVisitComponent },
     ]
   },
 

@@ -1,0 +1,140 @@
+<ng-template #content let-modal>
+  <div class="card">
+    <div class="card-body">
+
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">บันทึก visit</h4>
+        <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="hn" class="required">hn</label>
+              <input type="text" name="hn" id="hn" class="form-control" (input)="inputHn(hn)" [(ngModel)]="hn">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="pttype" class="required">pttype</label>
+              <input type="text" name="pttype" id="pttype" class="form-control" [(ngModel)]="pttype">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="vstdttm" class="required">vstdttm</label>
+              <input type="text" name="vstdttm" id="vstdttm" class="form-control" [(ngModel)]="vstdttm">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="pname" class="required">pname</label>
+              <input type="text" name="pname" id="pname" class="form-control" [(ngModel)]="pname">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="fname" class="required">fname</label>
+              <input type="text" name="fname" id="fname" class="form-control" [(ngModel)]="fname">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="lname" class="required">lname</label>
+              <input type="text" name="lname" id="lname" class="form-control" [(ngModel)]="lname">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="birthdate" class="required">birthdate</label>
+              <input type="text" name="birthdate" id="birthdate" class="form-control" [(ngModel)]="birthdate">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="sex" class="required">sex</label>
+              <!-- <input type="text" name="sex" id="sex" class="form-control" [(ngModel)]="sex"> -->
+              <select class="form-control" name="sex" id="sex" [(ngModel)]="sex">
+                <option value="1">ชาย</option>
+                <option value="2">หญิง</option>
+              </select>
+
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="icd10" class="required">icd10</label>
+              <input type="text" name="icd10" id="icd10" class="form-control" (input)="inputIcd10(icd10)"
+                [(ngModel)]="icd10">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="icdname" class="required">icdname</label>
+              <input type="text" name="icdname" id="icdname" class="form-control" [(ngModel)]="icd10name">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="cln" class="required">cln</label>
+              <input type="text" name="cln" id="cln" class="form-control" (input)="inputCln(cln)" [(ngModel)]="cln">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="clnname" class="required">clnname</label>
+              <input type="text" name="clnname" id="clnname" class="form-control" [(ngModel)]="namecln">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="cc" class="required">cc</label>
+              <input type="text" name="cc" id="cc" class="form-control" [(ngModel)]="cc">
+            </div>
+          </div>
+          <button class="btn btn-sm btn-gradient-primary" *ngIf="!vn"(click)="save_visit()">บันทึก visit</button>
+        </form>
+      </div>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">บันทึก Lab</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row ">
+            <div class="form-group col-md-4">
+              <label for="labcode" class="required">labcode</label>
+              <input type="text" name="lbbk_labcode" id="lbbk_labcode" class="form-control" (input)="inputLabcode(lbbk_labcode)"
+                [(ngModel)]="lbbk_labcode">
+            </div>
+            <div class="form-group col-md-8">
+              <label for="labname" class="required">labname</label>
+              <input type="text" name="lbbk_labname" id="lbbk_labname" class="form-control" [(ngModel)]="lbbk_labname">
+            </div>
+            <div class="form-group col-md-2">
+              <input type="text" name="lbbk_id" id="lbbk_id" hidden>
+              <input type="text" name="lbbk_vn" id="lbbk_vn" hidden>
+
+              <button class="btn btn-sm btn-gradient-primary" (click)="save_lbbk()">บันทึก lab</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <div class="card" *ngIf="items">
+      <div class="card-body">
+        <div class="modal-header"></div>  
+       <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="width: 20%;">labcode</th>
+              <th style="width: 40%;">labname</th>
+              <th style="width: 40%;">##</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items">
+              <td>
+                <h4>{{item.labcode}}</h4>
+              </td>
+              <td>
+                <h4>{{item.labname}}</h4>
+              </td>
+              <td>
+                <button class="btn btn-sm btn-gradient-primary" (click)="edit(item)">รายละเอียด</button>
+                <button class="btn btn-sm btn-gradient-primary" (click)="onDelete(item)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="dismiss()">ปิด</button>
+  </div>
+
+</ng-template>

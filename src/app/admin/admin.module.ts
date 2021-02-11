@@ -24,6 +24,7 @@ import { HisancComponent } from './hisanc/hisanc.component';
 import { IptreportComponent } from './iptreport/iptreport.component';
 import { KpistgComponent } from './settings/kpistg/kpistg.component';
 import { DebtorComponent } from './debtor/debtor.component';
+import { SsoVisitComponent } from './sso-visit/sso-visit.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DebtorComponent } from './debtor/debtor.component';
     HisancComponent,
     IptreportComponent,
     KpistgComponent,
-    DebtorComponent
+    DebtorComponent,
+    SsoVisitComponent
   ],
   imports: [
     CommonModule,

@@ -29,6 +29,7 @@
     "bootstrap": "^4.3.1",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",
+    "fs": "0.0.1-security",
     "howler": "^2.1.2",
     "jspdf-autotable": "^3.2.5",
     "lodash": "^4.17.11",
@@ -53,7 +54,7 @@
     "@types/jasminewd2": "^2.0.6",
     "@types/lodash": "^4.14.123",
     "@types/mqtt": "^2.5.0",
-    "@types/node": "^8.9.4",
+    "@types/node": "^9.4.0",
     "@types/random-js": "^1.0.31",
     "codelyzer": "^5.0.0",
     "express": "^4.16.4",
@@ -65,8 +66,7 @@
     "karma-jasmine": "^2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "^5.4.2",
-    "ts-node": "^8.1.0",
     "tslint": "^5.16.0",
-    "typescript": "^3.2.4"
+    "typescript": "3.1.6"
   }
 }

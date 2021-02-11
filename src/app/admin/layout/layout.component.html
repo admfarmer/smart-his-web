@@ -52,6 +52,13 @@
         </li>
         <li class="nav-item" routerLinkActive="active"
           *ngIf="userType === 'ADMIN'  || userType === 'MEMBER'  || userType === 'REPORT'">
+          <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/ssovisit">
+            <span class="menu-title">บันทักส่ง lab</span>
+            <i class="mdi mdi-animation-play menu-icon"></i>
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active"
+          *ngIf="userType === 'ADMIN'  || userType === 'MEMBER'  || userType === 'REPORT'">
           <a class="nav-link" href="javascript://" (click)="openSidebar = false" routerLink="/admin/visit">
             <span class="menu-title">ประวัติการรักษา</span>
             <i class="mdi mdi-animation-play menu-icon"></i>
