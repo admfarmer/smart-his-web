@@ -22,7 +22,7 @@
           <th>ICD10</th>
           <th>pttype</th>
           <th>sex</th>
-          <th>accepted</th>
+          <!-- <th>accepted</th> -->
           <th>##</th>
         </tr>
       </thead>
@@ -49,7 +49,7 @@
           <td *ngIf='item.sex == 2'>
             <h4>หญิง</h4>
           </td>
-          <td *ngIf="item.accepted === 'N'">
+          <!-- <td *ngIf="item.accepted === 'N'">
             <h4>รอรับ lab</h4>
           </td>
           <td *ngIf="item.accepted === 'Y'">
@@ -57,7 +57,7 @@
           </td>
           <td *ngIf="item.accepted === 'C'">
             <h4>ยกเลิก</h4>
-          </td>
+          </td> -->
           <td>
             <div class="btn-group">
               <button class="btn btn-sm btn-gradient-primary" *ngIf="item.accepted === 'N'"
