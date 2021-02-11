@@ -49,24 +49,24 @@
           <td *ngIf='item.sex == 2'>
             <h4>หญิง</h4>
           </td>
-          <td *ngIf="item.accepted == 'N'">
+          <td *ngIf="item.accepted === 'N'">
             <h4>รอรับ lab</h4>
           </td>
-          <td *ngIf="item.accepted == 'Y'">
+          <td *ngIf="item.accepted === 'Y'">
             <h4>รับ lab แล้ว</h4>
           </td>
-          <td *ngIf="item.accepted == 'C'">
+          <td *ngIf="item.accepted === 'C'">
             <h4>ยกเลิก</h4>
           </td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-sm btn-gradient-primary" *ngIf="item.accepted == 'N'"
+              <button class="btn btn-sm btn-gradient-primary" *ngIf="item.accepted === 'N'"
                 (click)="openEdit(item)">รายละเอียด</button>
-              <button class="btn btn-sm btn-gradient-danger" *ngIf="item.accepted == 'N'"
+              <button class="btn btn-sm btn-gradient-danger" *ngIf="item.accepted === 'N'"
                 (click)="onDelete(item)">delete</button>
-              <button class="btn btn-sm btn-gradient-success" *ngIf="item.accepted == 'N'"
+              <button class="btn btn-sm btn-gradient-success" *ngIf="item.accepted === 'N'"
                 (click)="onAccepted(item)">Accepted</button>
-              <button class="btn btn-sm btn-gradient-danger" *ngIf="item.accepted == 'N'"
+              <button class="btn btn-sm btn-gradient-danger" *ngIf="item.accepted === 'N'"
                 (click)="onCancel(item)">Cancel</button>
             </div>
           </td>
