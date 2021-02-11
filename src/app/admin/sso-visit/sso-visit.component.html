@@ -5,8 +5,6 @@
       ส่งรายงานเฉพาะ รพ.สต นำส่ง มาโรงพยาบาล
       <button class="btn btn-sm btn-gradient-info" (click)="openEdit()">ลงทะเบียน </button>
     </p>
-    <!-- <button class="btn btn-sm btn-gradient-primary" (click)="openEdit()">ลงทะเบียน </button> -->
-
     <div class="form-row">
       <div class="form-group col-md-4">
         <input type="text" name="search" id="search" class="form-control" [(ngModel)]="search">
@@ -14,8 +12,8 @@
       <div class="form-group col-md-4">
         <button class="btn btn-sm btn-gradient-primary" (click)="onSearch()">ค้นหา</button>
       </div>
-      </div>
-  <table class="table">
+    </div>
+    <table class="table">
       <thead>
         <tr>
           <th>HN</th>
@@ -29,24 +27,48 @@
         </tr>
       </thead>
       <tbody>
-        <tr  *ngFor="let item of items">
-          <td><h4>{{item.hn}}</h4></td>
-          <td><h4>{{item.pname}}{{item.fname}} {{item.lname}}</h4></td>
-          <td><h4>{{item.vstdttm | date:'yyyy-MM-dd HH:mm:ss'}}</h4></td>
-          <td><h4>{{item.icd10}}</h4></td>
-          <td><h4>{{item.pttype}}</h4></td>
-          <td *ngIf='item.sex == 1'><h4>ชาย</h4></td>
-          <td *ngIf='item.sex == 2'><h4>หญิง</h4></td>
-          <td *ngIf="item.accepted == 'N'"><h4>รอรับ lab</h4></td>
-          <td *ngIf="item.accepted == 'Y'"><h4>รับ lab แล้ว</h4></td>
-          <td *ngIf="item.accepted == 'C'"><h4>ยกเลิก</h4></td>
+        <tr *ngFor="let item of items">
           <td>
-              <div class="btn-group">
-                <button class="btn btn-sm btn-gradient-primary" *ngIf="item.accepted == 'N'" (click)="openEdit(item)">รายละเอียด</button>
-                <button class="btn btn-sm btn-gradient-danger" *ngIf="item.accepted == 'N'" (click)="onDelete(item)">delete</button>
-                <button class="btn btn-sm btn-gradient-success" *ngIf="item.accepted == 'N'" (click)="onAccepted(item)">Accepted</button>
-                <button class="btn btn-sm btn-gradient-danger" *ngIf="item.accepted == 'N'" (click)="onCancel(item)">Cancel</button>
-              </div>
+            <h4>{{item.hn}}</h4>
+          </td>
+          <td>
+            <h4>{{item.pname}}{{item.fname}} {{item.lname}}</h4>
+          </td>
+          <td>
+            <h4>{{item.vstdttm | date:'yyyy-MM-dd HH:mm:ss'}}</h4>
+          </td>
+          <td>
+            <h4>{{item.icd10}}</h4>
+          </td>
+          <td>
+            <h4>{{item.pttype}}</h4>
+          </td>
+          <td *ngIf='item.sex == 1'>
+            <h4>ชาย</h4>
+          </td>
+          <td *ngIf='item.sex == 2'>
+            <h4>หญิง</h4>
+          </td>
+          <td *ngIf="item.accepted == 'N'">
+            <h4>รอรับ lab</h4>
+          </td>
+          <td *ngIf="item.accepted == 'Y'">
+            <h4>รับ lab แล้ว</h4>
+          </td>
+          <td *ngIf="item.accepted == 'C'">
+            <h4>ยกเลิก</h4>
+          </td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-gradient-primary" *ngIf="item.accepted == 'N'"
+                (click)="openEdit(item)">รายละเอียด</button>
+              <button class="btn btn-sm btn-gradient-danger" *ngIf="item.accepted == 'N'"
+                (click)="onDelete(item)">delete</button>
+              <button class="btn btn-sm btn-gradient-success" *ngIf="item.accepted == 'N'"
+                (click)="onAccepted(item)">Accepted</button>
+              <button class="btn btn-sm btn-gradient-danger" *ngIf="item.accepted == 'N'"
+                (click)="onCancel(item)">Cancel</button>
+            </div>
           </td>
         </tr>
       </tbody>
