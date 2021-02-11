@@ -58,6 +58,7 @@
           <td *ngIf="item.accepted === 'C'">
             <h4>ยกเลิก</h4>
           </td>
+          <td>
             <div class="btn-group">
               <button class="btn btn-sm btn-gradient-primary" *ngIf="item.accepted === 'N'"
                 (click)="openEdit(item)">รายละเอียด</button>
