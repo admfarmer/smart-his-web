@@ -59,7 +59,7 @@ export class ModalSsoVisitComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('sso visit');
+    console.log('sso modal visit');
     this.hcode = sessionStorage.getItem('hcode');
 
   }
@@ -72,8 +72,11 @@ export class ModalSsoVisitComponent implements OnInit {
       size: 'lg',
       centered: false
     });
+   
 
     console.log(info);
+    this.hcode=sessionStorage.getItem('hcode');
+    console.log(this.hcode);
 
     if(info){
       this.vn = info.vn;
@@ -109,11 +112,14 @@ export class ModalSsoVisitComponent implements OnInit {
       this.lname = '';
       this.sex = '';
       this.birthdate = '';
-      this.hcode = this.hcode;  
+      // this.hcode = sessionStorage.getItem('hcode');
+      // this.hcode = this.hcode;  
       this.cc = '';
       this.lbbk_labname = '';
       this.lbbk_labcode = '';
     
+      console.log(this.hcode );
+      
       this.items = [];
       this.itemPt = [];
       this.itemClns = [];
@@ -289,7 +295,7 @@ export class ModalSsoVisitComponent implements OnInit {
         lname:this.lname,
         sex:this.sex,
         birthdate:this.birthdate,
-        hcode:this.hcode,
+        hcode:sessionStorage.getItem('hcode'),
         cc:this.cc 
         }
         console.log(info);
