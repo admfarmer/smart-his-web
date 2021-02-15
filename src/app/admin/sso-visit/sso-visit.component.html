@@ -68,7 +68,7 @@
               <button class="btn btn-sm btn-gradient-primary" *ngIf="item.accepted === 'N'"
                 (click)="openEdit(item)">รายละเอียด</button>
               <button class="btn btn-sm btn-gradient-danger" *ngIf="item.accepted === 'N'"
-                (click)="onDelete(item)">delete</button>
+                (click)="Delete(item)">Delete</button>
               <button class="btn btn-sm btn-gradient-success" *ngIf="item.accepted === 'N' && hcode === '10957'"
                 (click)="onAccepted(item)">Accepted</button>
               <button class="btn btn-sm btn-gradient-danger" *ngIf="item.accepted === 'N' && hcode === '10957'"

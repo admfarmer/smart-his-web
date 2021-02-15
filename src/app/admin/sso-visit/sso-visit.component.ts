@@ -92,13 +92,15 @@ export class SsoVisitComponent implements OnInit {
       this.alertService.error();
     }
   }
-  async onDelete(i){
+  async Delete(i){
     console.log(i);
 
     try {
       const rs: any = await this.hisVisitService.delete(i.vn);
-      let date = moment(this.dateTo).format('YYYY-MM-DD');
-      this.getList(this.hcode,date);
+      // let date = moment(this.dateTo).format('YYYY-MM-DD');
+      // this.getList(this.hcode,date);
+      this.onSearch();
+
   
     } catch (error) {
       console.log(error);
