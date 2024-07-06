@@ -30,7 +30,7 @@ export class UserComponent implements OnInit {
   }
 
   openEdit(item: any) {
-    console.log(item);
+    // console.log(item);
     this.mdlUser.open(item);
   }
 
@@ -68,7 +68,7 @@ export class UserComponent implements OnInit {
       if (rs.statusCode === 200) {
         this.items = rs.results;
       } else {
-        console.log(rs.message);
+        // console.log(rs.message);
         this.alertService.error('เกิดข้อผิดพลาด');
       }
     } catch (error) {

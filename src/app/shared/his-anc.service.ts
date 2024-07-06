@@ -22,8 +22,7 @@ export class HisAncService {
     return this.httpClient.post(_url, info, this.httpOptions).toPromise();
   }
   async getService(hn: any, dateServ: any) {
-    console.log('anc');
-
+    // console.log('anc');
     const _url = `${this.apiUrl}/ancview/view/${hn}/${dateServ}`;
     return this.httpClient.get(_url, this.httpOptions).toPromise();
   }

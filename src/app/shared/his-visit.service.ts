@@ -22,8 +22,7 @@ export class HisVisitService {
     return this.httpClient.post(_url, info, this.httpOptions).toPromise();
   }
   async getService(hn: any, dateServ: any) {
-    console.log('visit');
-
+    // console.log('visit');
     const _url = `${this.apiUrl}/services/view/${hn}/${dateServ}`;
     return this.httpClient.get(_url, this.httpOptions).toPromise();
   }

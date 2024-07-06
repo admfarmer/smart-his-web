@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
           const token = rs.token;
           sessionStorage.setItem('token', token);
           const decoded: any = this.jwtHelper.decodeToken(token);
-          console.log(decoded);
+          // console.log(decoded);
           
           sessionStorage.setItem('fullname', decoded.fullname);
           sessionStorage.setItem('userType', decoded.userType);

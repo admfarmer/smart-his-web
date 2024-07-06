@@ -79,7 +79,7 @@ export class ModalAddKpidataComponent implements OnInit {
   }
 
   async getYearsItem(years_id: any) {
-    console.log(years_id);
+    // console.log(years_id);
 
     let _info = {
       years_id: years_id,
@@ -134,7 +134,7 @@ export class ModalAddKpidataComponent implements OnInit {
       try {
         if (this.id) {
           let _id = this.id;
-          console.log("edit data");
+          // console.log("edit data");
           let rs: any = await this.kpiDatasService.update(_info, _id);
           // console.log(rs.info);
           if (rs.info) {
@@ -151,7 +151,7 @@ export class ModalAddKpidataComponent implements OnInit {
             this.alertService.error('ไม่สามารถบันทึกข้อมูลได้');
           }
         } else {
-          console.log("add data");
+          // console.log("add data");
           let rs: any = await this.kpiDatasService.save(_info);
           // console.log(rs.info.length);
           if (rs.info.length) {

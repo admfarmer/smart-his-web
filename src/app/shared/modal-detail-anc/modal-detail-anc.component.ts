@@ -32,7 +32,7 @@ export class ModalDetailAncComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('anc');
+    // console.log('anc');
 
   }
 
@@ -93,7 +93,7 @@ export class ModalDetailAncComponent implements OnInit {
       size: 'lg',
       centered: false
     });
-    console.log(info);
+    // console.log(info);
     // let _hn = info.pid;
     // let _dateServ = info.date_serv;
     try {
@@ -101,8 +101,8 @@ export class ModalDetailAncComponent implements OnInit {
       if (rs.ok) {
         this.items = rs.rows;
         this.profile = rs.profile;
-        console.log(this.profile);
-        console.log(this.items);
+        // console.log(this.profile);
+        // console.log(this.items);
       } else {
         this.alertService.error('เกิดข้อผิดพลาด');
       }

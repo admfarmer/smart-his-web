@@ -58,7 +58,7 @@ export class ModalAddKpiyearComponent implements OnInit {
   }
 
   async save() {
-    console.log("save");
+    // console.log("save");
 
     let _info = {
       quarter: this.quarter,
@@ -69,7 +69,7 @@ export class ModalAddKpiyearComponent implements OnInit {
       try {
         if (this.id) {
           let _id = this.id;
-          console.log("edit data");
+          // console.log("edit data");
           let rs: any = await this.kpiYearsService.update(_info, _id);
           // console.log(rs.info);
           if (rs.info) {
@@ -83,7 +83,7 @@ export class ModalAddKpiyearComponent implements OnInit {
             this.alertService.error('ไม่สามารถบันทึกข้อมูลได้');
           }
         } else {
-          console.log("add data");
+          // console.log("add data");
           let rs: any = await this.kpiYearsService.save(_info);
           // console.log(rs.info.length);
           if (rs.info.length) {

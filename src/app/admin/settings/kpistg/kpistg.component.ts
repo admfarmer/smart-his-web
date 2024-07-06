@@ -36,12 +36,12 @@ export class KpistgComponent implements OnInit {
   }
 
   openEdit(item: any) {
-    console.log(item);
+    // console.log(item);
     this.mdlKpiStg.open(item);
   }
 
   openRegister() {
-    console.log('ADD');
+    // console.log('ADD');
     this.mdlKpiStg.open();
   }
 
@@ -51,7 +51,7 @@ export class KpistgComponent implements OnInit {
   }
 
   remove(item: any) {
-    console.log(item);
+    // console.log(item);
   }
 
   async getStgInfo() {

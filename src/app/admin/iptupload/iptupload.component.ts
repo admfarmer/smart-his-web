@@ -87,8 +87,8 @@ export class IptuploadComponent {
 
     this.isUploading = true;
     this.documentCode = _an;
-    console.log(this.documentCode);
-    console.log(this.filesToUpload);
+    // console.log(this.documentCode);
+    // console.log(this.filesToUpload);
 
     try {
       const result: any = await this.uploadingService.makeFileRequest(this.documentCode, this.filesToUpload)
@@ -132,7 +132,7 @@ export class IptuploadComponent {
       document_id: _document_id,
       file_name: _file_name
     }
-    console.log(_info);
+    // console.log(_info);
     this.items.push(_info);
     this.loadingFiles = false;
 

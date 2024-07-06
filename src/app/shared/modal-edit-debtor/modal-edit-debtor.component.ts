@@ -41,7 +41,7 @@ export class ModalEditDebtorComponent implements OnInit {
       size: 'sm',
       centered: false
     });
-    console.log(info);
+    // console.log(info);
     if (info.vn) {
       this.vn = info.vn;
       this.fullname = info.fullname;
@@ -74,11 +74,11 @@ export class ModalEditDebtorComponent implements OnInit {
       accept: this.accept,
       status: 'ACQUIT'
     }
-    console.log(_info);
+    // console.log(_info);
     if (this.vn && this.accept) {
       try {
         let _vn = this.vn;
-        console.log("edit data");
+        // console.log("edit data");
         let rs: any = await this.hisIncothService.updateDebtor(_info, _vn);
         // console.log(rs.info);
         if (rs.info) {

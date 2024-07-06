@@ -139,7 +139,7 @@ export class ModalAddRcptComponent implements OnInit {
 
     if (this.vn && this.rcptamt) {
       try {
-        console.log("save data");
+        // console.log("save data");
         let rs: any = await this.hisRcptService.save(_info);
         // console.log(rs.info);
         let x = rs.info;

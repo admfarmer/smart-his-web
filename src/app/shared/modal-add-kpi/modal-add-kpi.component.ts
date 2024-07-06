@@ -46,7 +46,7 @@ export class ModalAddKpiComponent implements OnInit {
       size: 'lg',
       centered: false
     });
-    console.log(info);
+    // console.log(info);
     if (info.kpi_id) {
       this.kpi_id = info.kpi_id;
       this.kpi_stg_id = info.kpi_stg_id;
@@ -128,7 +128,7 @@ export class ModalAddKpiComponent implements OnInit {
       try {
         if (this.kpi_id) {
           let _kpi_id = this.kpi_id;
-          console.log("edit data");
+          // console.log("edit data");
           let rs: any = await this.kpiService.update(_info, _kpi_id);
           // console.log(rs.info);
           if (rs.info) {
@@ -145,7 +145,7 @@ export class ModalAddKpiComponent implements OnInit {
             this.alertService.error('ไม่สามารถบันทึกข้อมูลได้');
           }
         } else {
-          console.log("add data");
+          // console.log("add data");
           let rs: any = await this.kpiService.save(_info);
           // console.log(rs.info.length);
           if (rs.info.length) {

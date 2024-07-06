@@ -59,7 +59,7 @@ export class ModalSsoVisitComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('sso modal visit');
+    // console.log('sso modal visit');
     this.hcode = sessionStorage.getItem('hcode');
 
   }
@@ -74,9 +74,9 @@ export class ModalSsoVisitComponent implements OnInit {
     });
    
 
-    console.log(info);
+    // console.log(info);
     this.hcode=sessionStorage.getItem('hcode');
-    console.log(this.hcode);
+    // console.log(this.hcode);
 
     if(info){
       this.vn = info.vn;
@@ -118,7 +118,7 @@ export class ModalSsoVisitComponent implements OnInit {
       this.lbbk_labname = '';
       this.lbbk_labcode = '';
     
-      console.log(this.hcode );
+      // console.log(this.hcode );
       
       this.items = [];
       this.itemPt = [];
@@ -135,7 +135,7 @@ export class ModalSsoVisitComponent implements OnInit {
   async selectVn(vn:any){
     try {
       let rs: any = await this.hisLbbkService.getSelectVn(vn);
-      console.log(rs);
+      // console.log(rs);
       if (rs.results.length > 0) {
         this.items = rs.results;
         // console.log(this.items);
@@ -213,7 +213,7 @@ export class ModalSsoVisitComponent implements OnInit {
     // console.log(labcode);
     try {
       let rs: any = await this.hisLbbkService.getSelectHn(hn);
-      console.log(rs);
+      // console.log(rs);
       if (rs.info) {
         this.itemPt = rs.info;
         // console.log(this.itemPt);
@@ -241,22 +241,22 @@ export class ModalSsoVisitComponent implements OnInit {
   }
 
   inputCln(cln){
-    console.log(cln);
+    // console.log(cln);
     this.getCln(this.cln);
   }
 
   inputIcd10(icd10){
-    console.log(icd10);
+    // console.log(icd10);
     this.getIcd10(this.icd10);
   }
 
   inputLabcode(labcode){
-    console.log(labcode);
+    // console.log(labcode);
     this.getLabcpde(this.lbbk_labcode);
 
   }  
   inputHn(hn){
-    console.log(hn);
+    // console.log(hn);
     this.getHn(this.hn);
 
   }
@@ -279,8 +279,8 @@ export class ModalSsoVisitComponent implements OnInit {
         hcode:this.hcode,
         cc:this.cc 
         }
-        console.log(this.vn);
-        console.log(info);
+        // console.log(this.vn);
+        // console.log(info);
 
     }else{
       let info = {
@@ -298,9 +298,9 @@ export class ModalSsoVisitComponent implements OnInit {
         hcode:sessionStorage.getItem('hcode'),
         cc:this.cc 
         }
-        console.log(info);
+        // console.log(info);
         let rs: any = await this.hisVisitService.save(info);
-        console.log(rs);
+        // console.log(rs);
         if(rs){
 
           this.vn = rs.rows;
@@ -318,7 +318,7 @@ export class ModalSsoVisitComponent implements OnInit {
     let labname = this.lbbk_labname;
     let labcode = this.lbbk_labcode;
 
-    console.log(id);
+    // console.log(id);
     
     if(id){
 
@@ -329,8 +329,8 @@ export class ModalSsoVisitComponent implements OnInit {
         vstdttm:this.vstdttm,
         hcode:this.hcode,
       }
-      console.log('data : ',info);
-      console.log('id : ',id);
+      // console.log('data : ',info);
+      // console.log('id : ',id);
 
     } else {
       let info = {
@@ -340,10 +340,10 @@ export class ModalSsoVisitComponent implements OnInit {
         vstdttm:this.vstdttm,
         hcode:this.hcode,
       }
-      console.log(info);
+      // console.log(info);
       try {
         let rs: any = await this.hisLbbkService.save(info);
-        console.log(rs);
+        // console.log(rs);
         this.selectVn(this.vn);
       } catch (error) {
         console.log(error);
@@ -354,7 +354,7 @@ export class ModalSsoVisitComponent implements OnInit {
   }
 
   edit(i){
-    console.log(i);
+    // console.log(i);
     this.lbbk_labcode = i.labcode;
     this.lbbk_labname = i.labname;
     this.lbbk_id = i.id;
@@ -362,7 +362,7 @@ export class ModalSsoVisitComponent implements OnInit {
   }
 
   async onDelete(i){
-    console.log(i);
+    // console.log(i);
 
     try {
       const rs: any = await this.hisLbbkService.delete(i.id);

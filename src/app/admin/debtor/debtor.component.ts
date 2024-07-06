@@ -42,7 +42,7 @@ export class DebtorComponent implements OnInit {
       const rs: any = await this.hisIncothService.getDebtorInfo();
       if (rs.info) {
         this.items = rs.info;
-        console.log(this.items);
+        // console.log(this.items);
       } else {
         this.alertService.error('เกิดข้อผิดพลาด');
       }

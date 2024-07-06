@@ -39,7 +39,7 @@ export class ModalAddIncothComponent implements OnInit {
       size: 'sm',
       centered: false
     });
-    console.log(info);
+    // console.log(info);
     if (info.id) {
       this.id = info.id;
       this.namecost = info.namecost;
@@ -63,11 +63,11 @@ export class ModalAddIncothComponent implements OnInit {
     let _info = {
       rcptamt: this.rcptamt,
     }
-    console.log(_info);
+    // console.log(_info);
     if (this.id && this.rcptamt) {
       try {
         let _id = this.id;
-        console.log("edit data");
+        // console.log("edit data");
         let rs: any = await this.hisIncothService.update(_info, _id);
         // console.log(rs.info);
         if (rs.info) {

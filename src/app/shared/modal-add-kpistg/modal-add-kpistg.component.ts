@@ -42,7 +42,7 @@ export class ModalAddKpistgComponent implements OnInit {
       size: 'lg',
       centered: false
     });
-    console.log(info);
+    // console.log(info);
     if (info.stg_id) {
       this.stg_id = info.stg_id;
       this.stg_id_old = info.stg_id;
@@ -85,7 +85,7 @@ export class ModalAddKpistgComponent implements OnInit {
       try {
         if (this.stg_id_old) {
           let _stg_id = this.stg_id_old;
-          console.log("edit data");
+          // console.log("edit data");
           let rs: any = await this.kpiService.updateStg(_info, _stg_id);
           // console.log(rs.info);
           if (rs.info) {
@@ -101,7 +101,7 @@ export class ModalAddKpistgComponent implements OnInit {
             this.alertService.error('ไม่สามารถบันทึกข้อมูลได้');
           }
         } else {
-          console.log("add data");
+          // console.log("add data");
           let rs: any = await this.kpiService.saveStg(_info);
           // console.log(rs.info.length);
           if (rs.info.length) {

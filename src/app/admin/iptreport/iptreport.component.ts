@@ -86,7 +86,7 @@ export class IptreportComponent implements OnInit {
       document_id: _document_id,
       file_name: _file_name
     }
-    console.log(_info);
+    // console.log(_info);
     this.items.push(_info);
     this.loadingFiles = false;
 

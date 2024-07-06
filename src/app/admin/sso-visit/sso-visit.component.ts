@@ -25,7 +25,7 @@ export class SsoVisitComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(sessionStorage.getItem('hcode'));
+    // console.log(sessionStorage.getItem('hcode'));
     
     this.hcode = sessionStorage.getItem('hcode');
     this.search = moment(this.dateTo).format('YYYY-MM-DD');
@@ -34,7 +34,7 @@ export class SsoVisitComponent implements OnInit {
   }
 
   openEdit(item:any){
-    console.log(item);
+    // console.log(item);
     this.mdlSsoVisit.open(item);
 
   }
@@ -49,7 +49,7 @@ export class SsoVisitComponent implements OnInit {
   }
 
   async onAccepted(i){
-    console.log(i);
+    // console.log(i);
     let info = {
       accepted:'Y'
     }
@@ -58,7 +58,7 @@ export class SsoVisitComponent implements OnInit {
 
   }
   async onCancel(i){
-    console.log(i);
+    // console.log(i);
     let info = {
       accepted:'C'
     }
@@ -73,7 +73,7 @@ export class SsoVisitComponent implements OnInit {
         const rs: any = await this.hisVisitService.getSelectDate(_date);
         if (rs.results.length > 0) {
           this.items = rs.results;
-          console.log(this.items);
+          // console.log(this.items);
         } else {
           console.log(rs.message);
         }
@@ -81,7 +81,7 @@ export class SsoVisitComponent implements OnInit {
         const rs: any = await this.hisVisitService.getSelectHcodeDate(_hcode,_date);
         if (rs.results.length > 0) {
           this.items = rs.results;
-          console.log(this.items);
+          // console.log(this.items);
         } else {
           console.log(rs.message);
         }
@@ -93,7 +93,7 @@ export class SsoVisitComponent implements OnInit {
     }
   }
   async Delete(i){
-    console.log(i);
+    // console.log(i);
 
     try {
       const rs: any = await this.hisVisitService.delete(i.vn);

@@ -28,7 +28,7 @@ export class VisitComponent implements OnInit {
   ) { }
 
   openEdit(item: any) {
-    console.log(item);
+    // console.log(item);
     this.mdlVisitDetail.open(item);
   }
 
@@ -54,7 +54,7 @@ export class VisitComponent implements OnInit {
       const rs: any = await this.hisVisitService.getVisit(this.info);
       if (rs.info.length > 0) {
         this.items = rs;
-        console.log(this.items);
+        // console.log(this.items);
       } else {
         console.log(rs.message);
       }
@@ -64,14 +64,14 @@ export class VisitComponent implements OnInit {
   }
 
   async getService(items: any) {
-    console.log(items);
+    // console.log(items);
     let _hn = items.hn;
     let _dateServ = items.dateServ;
     try {
       const rs: any = await this.hisVisitService.getService(_hn, _dateServ);
       if (rs.info.length > 0) {
         this.itemService = rs.info;
-        console.log(this.itemService);
+        // console.log(this.itemService);
       } else {
         console.log(rs.message);
       }

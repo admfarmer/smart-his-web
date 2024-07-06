@@ -44,7 +44,7 @@ export class KpidataComponent implements OnInit {
   }
 
   openRegister(item: any) {
-    console.log(item.kpi_id);
+    // console.log(item.kpi_id);
     let info = {
       kpi_id: item.kpi_id,
 
@@ -59,13 +59,13 @@ export class KpidataComponent implements OnInit {
   }
 
   openEdit(item: any) {
-    console.log(item);
+    // console.log(item);
     this.mdlKpidata.open(item);
   }
 
 
   openText(kpi_id: any) {
-    console.log(kpi_id);
+    // console.log(kpi_id);
     let info = {
       kpi_id: kpi_id
     }

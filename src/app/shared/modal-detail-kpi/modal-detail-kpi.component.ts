@@ -49,12 +49,12 @@ export class ModalDetailKpiComponent implements OnInit {
       size: 'lg',
       centered: false
     });
-    console.log(info);
+    // console.log(info);
     try {
       let rs: any = await this.kpiService.getKpiDetail(info.kpi_id);
       if (rs.info) {
         this.items = rs.info;
-        console.log(this.items);
+        // console.log(this.items);
         this.kpi_name = this.items[0].kpi_name
         this.kpi_scale = this.items[0].kpi_scale
       } else {

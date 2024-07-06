@@ -38,12 +38,12 @@ export class KpiComponent implements OnInit {
   }
 
   openEdit(item: any) {
-    console.log(item);
+    // console.log(item);
     this.mdlKpi.open(item);
   }
 
   openRegister() {
-    console.log('ADD');
+    // console.log('ADD');
     this.mdlKpi.open();
   }
   onSave(event: any) {
@@ -52,7 +52,7 @@ export class KpiComponent implements OnInit {
   }
 
   remove(item: any) {
-    console.log(item);
+    // console.log(item);
   }
 
   async getKpiInfo() {
